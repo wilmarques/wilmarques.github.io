@@ -18,5 +18,13 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "public": {
+      "tags": []
+    },
+    "public-e2e": {
+      "tags": [],
+      "implicitDependencies": ["public"]
+    }
+  }
 }
