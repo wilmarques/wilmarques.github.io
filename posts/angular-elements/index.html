@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Wil Marques</title>
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+        />
+    </head>
+    <body>
+        <header>
+            <h1>Wiley Marques</h1>
+            <nav>
+                <a href="/">Home</a> /
+                <a href="/posts/">Artigos</a>
+            </nav>
+        </header>
+
+        <h1>Angular Elements - Introdução</h1>
+
+        <p>
+            Estou iniciando essa série de artigos com o intuito de demonstrar
+            como utilizar
+            <a href="https://angular.io/guide/elements">Angular Elements</a>.
+        </p>
+        <p>
+            Começando pelo básico, não indo muito além do já
+            <a href="https://angular.io/guide/elements"
+                >documentado no site oficial do Angular</a
+            >.
+        </p>
+        <p>
+            Finalizando com pontos mais <em>avançados</em>, como roteamento e
+            micro front-ends.
+        </p>
+        <h2 id="web-components">Web Components</h2>
+        <p>
+            <a
+                href="https://www.thoughtworks.com/radar/techniques/micro-frontends"
+                >Micro front-end</a
+            >
+            é um assunto bastante atual, porém ainda imaturo.
+        </p>
+        <p>
+            Uma das maneiras de se utilizar essa abordagem de desenvolvimento é
+            usando
+            <a href="https://www.webcomponents.org/introduction"
+                >web components</a
+            >, mais especificamente
+            <a
+                href="https://html.spec.whatwg.org/multipage/custom-elements.html"
+                >Custom Elements</a
+            >.
+        </p>
+        <p>
+            Apesar dessa funcionalidade estar disponível em
+            <a href="https://caniuse.com/#feat=custom-elementsv1"
+                >navegadores mais atuais</a
+            >, comumente ainda temos que suportar outros navegadores.
+        </p>
+        <p>
+            Já estão disponíveis
+            <a href="https://www.webcomponents.org/polyfills">polyfills</a> para
+            cobrir esses cenários, porém a criação dos componentes é apenas um
+            dos problemas enfrentados no desenvolvimento de aplicações.
+        </p>
+        <p>
+            Além dos componentes em si, temos de nos preocupar com roteamento,
+            state management, caching, etc.
+        </p>
+        <h2 id="angular-elements">Angular Elements</h2>
+        <p>
+            Como qualquer outro assunto quando se trata de desenvolvimento,
+            muitos frameworks/libraries estão tentando endereçar esses pontos
+            criando abstrações a fim de facilitar todo esse trabalho.
+        </p>
+        <p>
+            O que será abordado nessa série é o trabalho realizado pelo time do
+            Angular,
+            <a href="https://angular.io/guide/elements">Angular Elements</a>.
+        </p>
+        <p>
+            Angular Elements basicamente funciona como uma ponte entre as APIs
+            do browser e as
+            <a href="https://angular.io/features"
+                >diversas funcionalidades providas pelo Angular</a
+            >.
+        </p>
+        <p>
+            Ao inserir um elemento construído dessa maneira em uma página, o
+            navegador o instancia e o adiciona ao
+            <a
+                href="https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM"
+                >DOM</a
+            >.
+        </p>
+        <p>
+            Em seguida, com esse elemento instanciado, o Angular assume o
+            controle e provê o seu conteúdo, data binding e change detection
+            através da sua
+            <a
+                href="https://angular.io/guide/template-syntax#binding-syntax-an-overview"
+                >Template Syntax</a
+            >.
+        </p>
+        <p>
+            A imagem abaixo (disponibilizada no site oficial) ilustra o
+            explicado acima:
+        </p>
+        <p>
+            <img
+                src="images/element-instantiation.png"
+                alt="Element Intantiation"
+            />
+        </p>
+        <h2 id="conclusão">Conclusão</h2>
+        <p>
+            Esse artigo foi criado para dar uma introdução teórica, já
+            direcionando o assunto com outros artigos e documentações a respeito
+            do assunto.
+        </p>
+        <p>
+            Provavelmente os próximos artigos serão mais direcionados à
+            implementação em si, com exemplos descritivos e funcionais.
+        </p>
+        <p>Sintam-se livres a comentar, contribuindo positivamente!</p>
+
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+    </body>
+</html>

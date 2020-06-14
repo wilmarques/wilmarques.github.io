@@ -1,0 +1,123 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "heroes-creator": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/heroes-creator",
+      "sourceRoot": "projects/heroes-creator/src",
+      "prefix": "hc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/heroes-creator",
+            "index": "projects/heroes-creator/src/index.html",
+            "main": "projects/heroes-creator/src/main.ts",
+            "polyfills": "projects/heroes-creator/src/polyfills.ts",
+            "tsConfig": "projects/heroes-creator/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/heroes-creator/src/favicon.ico",
+              "projects/heroes-creator/src/assets"
+            ],
+            "styles": [
+              "projects/heroes-creator/src/styles.css"
+            ],
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/heroes-creator/src/environments/environment.ts",
+                  "with": "projects/heroes-creator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "heroes-creator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "heroes-creator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "heroes-creator:build"
+          }
+        }
+      }
+    },
+    "heroes-visualizer": {
+      "projectType": "library",
+      "root": "projects/heroes-visualizer",
+      "sourceRoot": "projects/heroes-visualizer/src",
+      "prefix": "hv",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/heroes-visualizer/tsconfig.lib.json",
+            "project": "projects/heroes-visualizer/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/heroes-visualizer/src/test.ts",
+            "tsConfig": "projects/heroes-visualizer/tsconfig.spec.json",
+            "karmaConfig": "projects/heroes-visualizer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/heroes-visualizer/tsconfig.lib.json",
+              "projects/heroes-visualizer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "heroes-creator"
+}
