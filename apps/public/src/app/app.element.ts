@@ -1,14 +1,12 @@
 import "./app.element.css";
 
 export class AppElement extends HTMLElement {
-  public static observedAttributes = [];
+    public static observedAttributes = [];
 
-  connectedCallback() {
-    const title = "public";
-    this.innerHTML = `
-      <header class="flex">
-    <img alt="Nx logo" width="75" src="https://nx.dev/assets/images/nx-logo-white.svg" />
-    <h1>Welcome to ${title}!</h1>
+    connectedCallback() {
+        this.innerHTML = `
+<header>
+    Wil Marques
 </header>
 <main>
     <h2>Resources &amp; Tools</h2>
@@ -28,10 +26,7 @@ export class AppElement extends HTMLElement {
     </p>
     <ul class="resources">
         <li class="col-span-2">
-            <a
-                    class="resource flex"
-                    href="https://connect.nrwl.io/app/courses/nx-workspaces/intro"
-            >
+            <a href="https://connect.nrwl.io/app/courses/nx-workspaces/intro">
                 Nx video course
             </a>
         </li>
@@ -94,6 +89,6 @@ nx affected:e2e
     </details>
 </main>
     `;
-  }
+    }
 }
 customElements.define("blog-root", AppElement);
