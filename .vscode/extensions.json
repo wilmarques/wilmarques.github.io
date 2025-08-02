@@ -3,6 +3,10 @@
   "recommendations": [
     "angular.ng-template",
     "analogjs.vscode-analog",
-    "vitest.explorer"
+    "vitest.explorer",
+    "editorconfig.editorconfig",
+    "yzhang.markdown-all-in-one",
+    "davidanson.vscode-markdownlint",
+    "christian-kohler.npm-intellisense"
   ]
 }
