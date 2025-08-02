@@ -5,9 +5,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterLink, RouterOutlet],
   template: `
-    <nav>
+    <!-- <nav>
       <a routerLink="/">Home</a>
-    </nav>
+      <a routerLink="/experience">Experience</a>
+    </nav> -->
 
     <router-outlet />
   `,
@@ -16,7 +17,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
       max-width: 1280px;
       margin: 0 auto;
       padding: 2rem;
-      text-align: center;
     }
 
     nav {
@@ -25,4 +25,4 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     }
   `,
 })
-export class AppComponent {}
+export class AppComponent { }

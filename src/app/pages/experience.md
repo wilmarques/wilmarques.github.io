@@ -10,7 +10,7 @@ I am a professional with a background in Software Engineering, specializing in F
 
 I also have a strong experience in leading teams, architecting solutions, and Back-end development.
 
-Below is a summary of my professional journey:
+Check out my professional experience:
 
 ## F1RST Digital Services
 
