@@ -1,14 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== CSS Custom Properties ===== */
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  /* Colors - Dark theme */
+  --color-bg: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-card: #1e293b;
+  --color-text: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-accent: #38bdf8;
+  --color-accent-hover: #7dd3fc;
+  --color-accent-subtle: rgba(56, 189, 248, 0.1);
+  --color-border: #334155;
+  --color-gradient-start: #38bdf8;
+  --color-gradient-end: #818cf8;
+
+  /* Typography */
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 1.7;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  /* Rendering */
+  color-scheme: dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,69 +31,209 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #535bf2;
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  color: #f1f5f9;
+  line-height: 1.3;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  color: var(--color-text-secondary);
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+/* ===== Buttons ===== */
+button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-border);
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  border-color: #646cff;
+button:hover,
+.btn:hover {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
+/* ===== Cards ===== */
 .card {
-  padding: 2em;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
+.card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.08);
+  transform: translateY(-2px);
 }
 
+/* ===== Gradient Text ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Section Styling ===== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end));
+  border-radius: 2px;
+}
+
+/* ===== Tag/Badge ===== */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* ===== Markdown Content ===== */
 .analog-markdown p {
   text-align: left;
+}
+
+.analog-markdown h1,
+.analog-markdown h2,
+.analog-markdown h3 {
+  margin-top: 2rem;
+}
+
+.analog-markdown code {
+  background: var(--color-bg-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.analog-markdown pre {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #fff;
 }
