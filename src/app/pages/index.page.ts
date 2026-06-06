@@ -9,11 +9,12 @@ import { RouterLink } from '@angular/router';
       <div class="hero-content">
         <p class="hero-greeting">Hi, I'm</p>
         <h1 class="hero-name">Wiley <span class="gradient-text">(Wil)</span> Marques</h1>
-        <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Advocate</p>
+        <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Experience Lead</p>
         <p class="hero-description">
           I build innovative solutions at the intersection of <strong>Artificial Intelligence</strong>,
-          <strong>Developer Experience</strong>, and modern web technologies. Currently leading AI-augmented
-          DevEx initiatives at F1RST Digital Services.
+          <strong>Developer Experience</strong>, and <strong>Agentic AI</strong>. Currently leading the
+          AI-driven SDLC initiative at F1RST Digital Services (Santander Group), implementing agentic
+          workflows and AI-DLC across the organization.
         </p>
         <div class="hero-cta">
           <a routerLink="/experience" class="btn-primary">View Experience</a>
@@ -28,14 +29,14 @@ import { RouterLink } from '@angular/router';
             <span class="dot dot-green"></span>
           </div>
           <pre class="code-content"><span class="code-keyword">const</span> <span class="code-var">wil</span> = {{ '{' }}
-  <span class="code-key">role</span>: <span class="code-string">"Developer Advocate Expert"</span>,
+  <span class="code-key">role</span>: <span class="code-string">"Developer Experience Lead"</span>,
   <span class="code-key">company</span>: <span class="code-string">"F1RST Digital Services"</span>,
   <span class="code-key">focus</span>: [
     <span class="code-string">"AI"</span>,
     <span class="code-string">"DevEx"</span>,
-    <span class="code-string">"Angular"</span>,
+    <span class="code-string">"Agentic AI"</span>,
   ],
-  <span class="code-key">passion</span>: <span class="code-string">"Building tools that empower developers"</span>,
+  <span class="code-key">passion</span>: <span class="code-string">"AI-driven developer workflows"</span>,
 {{ '}' }};</pre>
         </div>
       </div>
@@ -50,8 +51,8 @@ import { RouterLink } from '@angular/router';
               <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3>AI & Innovation</h3>
-          <p>Architecting AI-powered tools that transform legacy code into modern solutions and enhance developer productivity.</p>
+          <h3>AI & Agentic Systems</h3>
+          <p>Architecting enterprise AI platforms and agentic workflows using ReAct agents, LLMs, and multi-agent architectures to automate the full development lifecycle.</p>
         </div>
         <div class="skill-card">
           <div class="skill-icon">
