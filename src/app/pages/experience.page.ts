@@ -32,9 +32,9 @@ interface Company {
     <section class="experience-hero">
       <h1>Professional <span class="gradient-text">Experience</span></h1>
       <p class="experience-intro">
-        Software Engineer specializing in Front-end Development, Developer Experience, and
-        Artificial Intelligence. Strong experience leading teams, architecting solutions,
-        and back-end development.
+        Software Engineer specializing in Artificial Intelligence, Developer Experience, and
+        scalable platform engineering. Strong experience leading AI-driven SDLC initiatives,
+        architecting enterprise AI solutions, and building agentic workflows.
       </p>
     </section>
 
@@ -262,20 +262,20 @@ export default class ExperiencePageComponent {
       location: 'São Paulo, Brazil',
       roles: [
         {
-          title: 'Developer Advocate Expert',
+          title: 'Developer Experience Lead',
           period: 'Sep 2024 - Present',
           duration: '1 year',
           location: 'São Paulo, Brazil',
-          description: 'Technical leading the Developer Advocate team, with a mission to enforce quality and productivity within all Software Delivery Lifecycle (SDLC) through an AI augmented DevEx. Leveraging tools like GitHub Copilot. Enhancing it in specific use cases and connecting it with other tools.',
-          skills: ['GitHub', 'Developer Experience', 'Problem Solving', 'Technical Writing', 'AI', 'English'],
+          description: 'Leading the AI-driven Software Development Lifecycle (SDLC) initiative at Santander Brazil. Responsible for the technical implementation of GitHub Copilot, Devin (Cognition AI) and Windsurf across the organization — defining adoption strategies, integration with internal environments and development processes. Driving Specification Driven Development with AI using GitHub SpecKit, OpenSpec, BMAD Method and AWS AI-DLC workflows. Leveraging Markdown, MCPs and Agent Skills as the foundation for agentic workflows. Mission to implement the Artificial Intelligence Development Lifecycle (AI-DLC) across the Santander Group.',
+          skills: ['GitHub Copilot', 'Devin', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'English'],
         },
         {
           title: 'AI Architect',
           period: 'Jan 2024 - Sep 2024',
           duration: '9 months',
           location: 'São Paulo, Brazil',
-          description: 'Architecting internal tools for SDLC. Helping create a tool that transforms legacy code into modern code, using AI.',
-          skills: ['Developer Experience', 'Problem Solving', 'JavaScript', 'Angular', 'Cloud Computing', 'R&D', 'AI', 'English'],
+          description: 'Architected two enterprise-scale AI solutions for the Santander Group. Designed the Global AI Platform — a reusable foundation for all AI solutions across the Group, built with Python and Java, deployed on Azure. Built an intelligent technology upgrade solution that automates repository modernization (e.g., Angular 12 to 20), implementing a ReAct (Reasoning + Acting) agent architecture on AWS using Amazon Bedrock and DynamoDB.',
+          skills: ['Python', 'Java', 'Azure', 'AWS', 'Amazon Bedrock', 'DynamoDB', 'ReAct Agents', 'LLM', 'AI Architecture', 'Cloud Computing', 'English'],
         },
         {
           title: 'Developer Experience Expert',
