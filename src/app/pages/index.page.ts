@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
       <div class="hero-content">
         <p class="hero-greeting">Hi, I'm</p>
         <h1 class="hero-name">Wiley <span class="gradient-text">(Wil)</span> Marques</h1>
-        <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Experience Lead</p>
+        <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Experience Lead (Agentic SDLC)</p>
         <p class="hero-description">
           I build innovative solutions at the intersection of <strong>Artificial Intelligence</strong>,
           <strong>Developer Experience</strong>, and <strong>Agentic AI</strong>. Currently leading the
@@ -29,7 +29,7 @@ import { RouterLink } from '@angular/router';
             <span class="dot dot-green"></span>
           </div>
           <pre class="code-content"><span class="code-keyword">const</span> <span class="code-var">wil</span> = {{ '{' }}
-  <span class="code-key">role</span>: <span class="code-string">"Developer Experience Lead"</span>,
+  <span class="code-key">role</span>: <span class="code-string">"Developer Experience Lead (Agentic SDLC)"</span>,
   <span class="code-key">company</span>: <span class="code-string">"F1RST Digital Services"</span>,
   <span class="code-key">focus</span>: [
     <span class="code-string">"AI"</span>,

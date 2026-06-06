@@ -262,7 +262,7 @@ export default class ExperiencePageComponent {
       location: 'São Paulo, Brazil',
       roles: [
         {
-          title: 'Developer Experience Lead',
+          title: 'Developer Experience Lead (Agentic SDLC)',
           period: 'Sep 2024 - Present',
           duration: '1 year',
           location: 'São Paulo, Brazil',
