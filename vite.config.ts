@@ -2,6 +2,23 @@
 
 import { defineConfig } from 'vite';
 import analog from '@analogjs/platform';
+import { readdirSync, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+
+function getBlogRoutes(): string[] {
+  const contentDir = resolve(__dirname, 'src/content');
+  return readdirSync(contentDir)
+    .filter((file) => file.endsWith('.md'))
+    .map((file) => {
+      const raw = readFileSync(resolve(contentDir, file), 'utf-8');
+      const match = raw.match(/^slug:\s*(.+)$/m);
+      return match ? `/blog/${match[1].trim()}` : null;
+    })
+    .filter((route): route is string => route !== null);
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -17,7 +34,7 @@ export default defineConfig(({ mode }) => ({
         highlighter: 'shiki',
       },
       prerender: {
-        routes: ['/', '/experience', '/blog', '/blog/2022-12-27-my-first-post'],
+        routes: ['/', '/experience', '/blog', ...getBlogRoutes()],
       },
     }),
   ],

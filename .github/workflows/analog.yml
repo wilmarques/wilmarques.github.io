@@ -40,12 +40,14 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
+      - name: Create 404 fallback for SPA routing
+        run: cp ./dist/analog/public/index.html ./dist/analog/public/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/client'
+          path: './dist/analog/public'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
