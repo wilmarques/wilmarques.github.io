@@ -18,6 +18,11 @@ interface Role {
   skills: string[];
 }
 
+interface SkillGroup {
+  name: string;
+  skills: string[];
+}
+
 interface Company {
   name: string;
   note?: string;
@@ -32,9 +37,11 @@ interface Company {
     <section class="experience-hero">
       <h1>Professional <span class="gradient-text">Experience</span></h1>
       <p class="experience-intro">
-        Software Engineer specializing in Artificial Intelligence, Developer Experience, and
-        scalable platform engineering. Strong experience leading AI-driven SDLC initiatives,
-        architecting enterprise AI solutions, and building agentic workflows.
+        Software Engineer with 12+ years in software development, the last 3+ years focused on
+        Artificial Intelligence, Developer Experience, and Agentic AI. Experienced in leading
+        AI-driven SDLC initiatives, architecting enterprise AI solutions and reusable platforms,
+        and building agentic workflows on top of a solid background in front-end architecture and
+        technical leadership.
       </p>
     </section>
 
@@ -87,6 +94,22 @@ interface Company {
           }
         </div>
       }
+    </section>
+
+    <section class="skills-section">
+      <h2 class="section-title">Key Skills</h2>
+      <div class="skills-grid">
+        @for (group of skillGroups; track group.name) {
+          <div class="skill-group">
+            <h3>{{ group.name }}</h3>
+            <div class="role-skills">
+              @for (skill of group.skills; track skill) {
+                <span class="skill-tag">{{ skill }}</span>
+              }
+            </div>
+          </div>
+        }
+      </div>
     </section>
   `,
   styles: `
@@ -235,8 +258,40 @@ interface Company {
       border: 1px solid rgba(56, 189, 248, 0.15);
     }
 
+    /* ===== Key Skills ===== */
+    .skills-section {
+      padding: 0 0 4rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+    }
+
+    .skill-group h3 {
+      font-size: 1rem;
+      margin-bottom: 0.875rem;
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 640px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
       .experience-hero h1 {
         font-size: 2rem;
       }
@@ -254,20 +309,39 @@ interface Company {
   `,
 })
 export default class ExperiencePageComponent {
+  skillGroups: SkillGroup[] = [
+    {
+      name: 'AI & Agentic Systems',
+      skills: ['ReAct Agents', 'Multi-agent Architectures', 'LLMs', 'Amazon Bedrock', 'GitHub Copilot', 'Devin', 'Windsurf', 'AI-DLC', 'Specification Driven Development', 'MCP', 'Agent Skills'],
+    },
+    {
+      name: 'Architecture & Platforms',
+      skills: ['Enterprise AI Platforms', 'Azure', 'AWS', 'Python', 'Java', 'Angular Frameworks', 'Component Libraries', 'Scalable Architecture'],
+    },
+    {
+      name: 'Developer Experience',
+      skills: ['Engineering Communities', 'Quality Standards', 'Technical Advocacy', 'SDLC Automation', 'Technical Content'],
+    },
+    {
+      name: 'Other',
+      skills: ['TypeScript', 'JavaScript', 'C#', '.NET', 'Technical Leadership'],
+    },
+  ];
+
   companies: Company[] = [
     {
       name: 'F1RST Digital Services',
       note: 'Previously known as Santander Tecnologia Brasil.',
-      totalDuration: '3 years 8 months',
+      totalDuration: '8 years 6 months',
       location: 'São Paulo, Brazil',
       roles: [
         {
           title: 'Developer Experience Lead (Agentic SDLC)',
           period: 'Sep 2024 - Present',
-          duration: '1 year',
+          duration: '1 year 11 months',
           location: 'São Paulo, Brazil',
           description: 'Leading the AI-driven Software Development Lifecycle (SDLC) initiative at Santander Brazil. Responsible for the technical implementation of GitHub Copilot, Devin (Cognition AI) and Windsurf across the organization — defining adoption strategies, integration with internal environments and development processes. Driving Specification Driven Development with AI using GitHub SpecKit, OpenSpec, BMAD Method and AWS AI-DLC workflows. Leveraging Markdown, MCPs and Agent Skills as the foundation for agentic workflows. Mission to implement the Artificial Intelligence Development Lifecycle (AI-DLC) across the Santander Group.',
-          skills: ['GitHub Copilot', 'Devin', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'English'],
+          skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'English'],
         },
         {
           title: 'AI Architect',

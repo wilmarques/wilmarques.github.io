@@ -11,10 +11,12 @@ import { RouterLink } from '@angular/router';
         <h1 class="hero-name">Wiley <span class="gradient-text">(Wil)</span> Marques</h1>
         <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Experience Lead (Agentic SDLC)</p>
         <p class="hero-description">
-          I build innovative solutions at the intersection of <strong>Artificial Intelligence</strong>,
+          Technology professional with <strong>12+ years</strong> in software development, the last
+          <strong>3+ years</strong> focused on <strong>Artificial Intelligence</strong>,
           <strong>Developer Experience</strong>, and <strong>Agentic AI</strong>. Currently leading the
-          AI-driven SDLC initiative at F1RST Digital Services (Santander Group), implementing agentic
-          workflows and AI-DLC across the organization.
+          AI-driven SDLC initiative at F1RST Digital Services (Santander Group), architecting
+          enterprise-scale AI platforms and rolling out agentic workflows and AI-DLC across the
+          organization.
         </p>
         <div class="hero-cta">
           <a routerLink="/experience" class="btn-primary">View Experience</a>
@@ -52,7 +54,7 @@ import { RouterLink } from '@angular/router';
             </svg>
           </div>
           <h3>AI & Agentic Systems</h3>
-          <p>Architecting enterprise AI platforms and agentic workflows using ReAct agents, LLMs, and multi-agent architectures to automate the full development lifecycle.</p>
+          <p>Architecting enterprise AI platforms and agentic workflows using ReAct agents, LLMs, multi-agent architectures, MCP, and Agent Skills to automate the full development lifecycle.</p>
         </div>
         <div class="skill-card">
           <div class="skill-icon">
@@ -60,8 +62,8 @@ import { RouterLink } from '@angular/router';
               <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
             </svg>
           </div>
-          <h3>Front-end Architecture</h3>
-          <p>Designing scalable Angular frameworks and component libraries used across enterprise-scale applications.</p>
+          <h3>Architecture & Platforms</h3>
+          <p>Designing reusable enterprise platforms on Azure and AWS with Python and Java, plus Angular frameworks and component libraries adopted at scale.</p>
         </div>
         <div class="skill-card">
           <div class="skill-icon">
@@ -70,7 +72,7 @@ import { RouterLink } from '@angular/router';
             </svg>
           </div>
           <h3>Developer Experience</h3>
-          <p>Building engineering communities and driving software quality through knowledge sharing and technical advocacy.</p>
+          <p>Building engineering communities, standardizing quality, and automating the SDLC through technical advocacy and knowledge sharing.</p>
         </div>
       </div>
     </section>
@@ -91,6 +93,11 @@ import { RouterLink } from '@angular/router';
           <span class="highlight-label">Years as Architect</span>
         </div>
       </div>
+      <ul class="highlights-list">
+        <li>Creator of an internal Angular framework adopted at enterprise scale.</li>
+        <li>Architect of the Santander Group Global AI Platform.</li>
+        <li>Leading the AI-DLC transformation at Santander Brazil.</li>
+      </ul>
     </section>
   `,
   styles: `
@@ -296,6 +303,33 @@ import { RouterLink } from '@angular/router';
       font-size: 0.875rem;
       color: var(--color-text-muted);
       font-weight: 500;
+    }
+
+    .highlights-list {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .highlights-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-secondary);
+    }
+
+    .highlights-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
     }
 
     /* ===== Responsive ===== */
