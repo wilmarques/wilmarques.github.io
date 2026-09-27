@@ -176,4 +176,4 @@ But let's be honest about the experience. A coding agent in a terminal, on a 6-i
 
 Which leads to the next question: **what if I didn't have to use the terminal at all?** What if a real mobile app could talk to the Devin running on the same phone?
 
-That's the next *What If*.
+Tune in for the next episode of *What If*.
