@@ -1,7 +1,7 @@
 ---
 title: "What If... Devin Ran on My Phone?"
 slug: 2026-09-27-what-if-devin-on-my-phone
-description: First entry in the "What If" series — turning an Android phone into a pocket Linux computer with Termux and proot-distro, and running the Devin CLI on it.
+description: First entry in the "What If" series — turning an Android phone into a pocket Linux computer with Termux and proot-distro, and running the Devin CLI (or any coding agent) on it.
 coverImage: /images/what-if-devin-on-my-phone.svg
 ---
 
@@ -165,6 +165,12 @@ From there it's just a Linux machine with an agent on it. The usual developer ki
 ```
 
 Clone a repo, open `devin` in it, and start working — no home server, no VM, nothing but the phone.
+
+### Not just Devin
+
+Nothing in this setup is specific to Devin. Once the phone is running a real Linux distro, it's just an `aarch64` Linux box — so **any coding agent that runs on Linux ARM64 works the same way**: Claude Code, opencode, Codex CLI, Gemini CLI, whatever your agent of choice is. Use its regular Linux installer (or `npm`, since Node is one `dnf install nodejs` away), log in, and you're done.
+
+Termux and proot-distro do the hard part: they turn the phone into a computer. Which agent you run on it is up to you.
 
 ---
 
