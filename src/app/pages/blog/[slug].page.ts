@@ -21,9 +21,6 @@ import PostAttributes from '../../post-attributes';
 
       <header class="post-header">
         <h1 class="post-title">{{ post.attributes.title }}</h1>
-        @if (post.attributes.description) {
-          <p class="post-subtitle">{{ post.attributes.description }}</p>
-        }
       </header>
 
       <div class="post-content">
@@ -75,13 +72,6 @@ import PostAttributes from '../../post-attributes';
     .post-title {
       font-size: 2.25rem;
       line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-
-    .post-subtitle {
-      font-size: 1.125rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
     }
 
     .post-content {

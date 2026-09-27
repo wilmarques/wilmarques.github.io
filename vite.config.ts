@@ -32,6 +32,11 @@ export default defineConfig(({ mode }) => ({
     analog({
       content: {
         highlighter: 'shiki',
+        shikiOptions: {
+          highlighter: {
+            additionalLangs: ['shellsession'],
+          },
+        },
       },
       prerender: {
         routes: ['/', '/experience', '/blog', ...getBlogRoutes()],

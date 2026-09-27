@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'JetBrains Mono','Fira Code',Menlo,Consolas,monospace">
+  <defs>
+    <radialGradient id="glow" cx="75%" cy="50%" r="60%">
+      <stop offset="0" stop-color="#1b2a3a"/>
+      <stop offset="1" stop-color="#0b0f14"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <g fill="#e6edf3">
+    <text x="90" y="250" font-size="88" font-weight="700">What if...</text>
+    <text x="90" y="335" font-size="54" fill="#c9d1d9">Devin ran on</text>
+    <text x="90" y="400" font-size="54" fill="#c9d1d9">my phone?</text>
+  </g>
+  <text x="92" y="470" font-size="22">
+    <tspan fill="#3DDC84">android</tspan><tspan fill="#6e7681" dx="12">›</tspan><tspan dx="12" fill="#e6edf3">termux</tspan><tspan fill="#6e7681" dx="12">›</tspan><tspan dx="12" fill="#51A2DA">fedora</tspan><tspan fill="#6e7681" dx="12">›</tspan><tspan dx="12" fill="#c4a7ff">devin</tspan>
+  </text>
+
+  <!-- Android: the phone -->
+  <rect x="770" y="30" width="340" height="570" rx="44" fill="#10161d" stroke="#3DDC84" stroke-width="4"/>
+  <rect x="905" y="46" width="70" height="8" rx="4" fill="#3DDC84" opacity="0.6"/>
+  <text x="800" y="86" font-size="17" fill="#3DDC84">android</text>
+
+  <!-- Termux: terminal window -->
+  <rect x="795" y="100" width="290" height="475" rx="12" fill="#000" stroke="#e6edf3" stroke-width="2.5"/>
+  <text x="812" y="128" font-size="16" fill="#e6edf3">~ $ <tspan fill="#8b949e">termux</tspan></text>
+
+  <!-- Fedora: proot-distro -->
+  <rect x="815" y="145" width="250" height="410" rx="10" fill="#07111c" stroke="#51A2DA" stroke-width="2.5"/>
+  <text x="830" y="173" font-size="15" fill="#51A2DA">[root@fedora ~]#</text>
+
+  <!-- Devin -->
+  <rect x="835" y="190" width="210" height="345" rx="8" fill="#120d1f" stroke="#c4a7ff" stroke-width="2.5"/>
+  <text x="850" y="218" font-size="15" fill="#c4a7ff">$ devin</text>
+  <g font-size="13">
+    <text x="850" y="258" fill="#8b949e">&gt; where are you</text>
+    <text x="850" y="276" fill="#8b949e">  running?</text>
+    <text x="850" y="312" fill="#e6edf3">$ uname -m</text>
+    <text x="850" y="330" fill="#3DDC84">aarch64</text>
+    <text x="850" y="366" fill="#e6edf3">Fedora Linux 44,</text>
+    <text x="850" y="384" fill="#e6edf3">in a PRoot</text>
+    <text x="850" y="402" fill="#e6edf3">container, on</text>
+    <text x="850" y="420" fill="#e6edf3">your phone.</text>
+    <text x="850" y="460" fill="#c4a7ff">&gt; <tspan fill="#e6edf3">_</tspan></text>
+  </g>
+</svg>
