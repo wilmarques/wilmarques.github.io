@@ -198,6 +198,24 @@ button:hover,
   overflow-x: auto;
 }
 
+.analog-markdown blockquote {
+  margin: 1.5rem 0;
+  padding: 0.875rem 1.25rem;
+  background: var(--color-accent-subtle);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.analog-markdown blockquote p {
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.analog-markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 /* ===== Animations ===== */
 @keyframes fadeInUp {
   from {
