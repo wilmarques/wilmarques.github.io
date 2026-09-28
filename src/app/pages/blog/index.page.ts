@@ -139,5 +139,7 @@ export const routeMeta: RouteMeta = {
   `,
 })
 export default class BlogComponent {
-  readonly posts = injectContentFiles<PostAttributes>();
+  readonly posts = injectContentFiles<PostAttributes>().sort((a, b) =>
+    b.attributes.slug.localeCompare(a.attributes.slug),
+  );
 }
