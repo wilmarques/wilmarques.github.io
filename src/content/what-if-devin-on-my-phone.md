@@ -5,64 +5,66 @@ description: First entry in the "What If" series — turning an Android phone in
 coverImage: /images/what-if-devin-on-my-phone.svg
 ---
 
-*This is the first post of a series I'm calling **What If...** — small experiments that start with a slightly unreasonable question and end wherever the terminal takes me.*
-
----
+*This is the first post of a series I'm calling **What If...**. Small experiments that start with a slightly unreasonable question and end wherever the terminal takes me.*
 
 ## The question
 
-Coding agents have already left the laptop. You see it everywhere: an agent running on a spare PC at home, or on a cloud VM, reached over SSH or a tunnel and driven from anywhere — including from a phone.
+Coding agents are not limited to the laptop anymore.
 
-But in every one of those setups, the phone is just a remote control. The agent lives somewhere else.
+It's common to see an agent running on a spare PC at home, or on a cloud VM, accessed over SSH or a tunnel. Even from a phone.
 
-So I asked myself: **what if the agent lived *on* the phone?** No home server, no VM. Just the device in my pocket, running a coding agent by itself.
+But in all of these setups, the phone is only a remote control. The agent runs somewhere else.
 
-It's an experiment, not a recommendation. But it turned out to be a surprisingly short path.
+So I asked myself: what if the agent ran *on* the phone? No home server, no VM. Only the device in my pocket.
 
-The first problem, though, wasn't the agent. Coding agents are built for computers. So I needed to turn my phone into one.
+This is an experiment, not a recommendation. And it turned out to be a short path.
 
----
+The first problem wasn't the agent, though. Coding agents are built for computers, so I had to turn my phone into one.
 
-## A computer that forgot it was one
+## Termux
 
-Here's the thing: the phone already *is* a computer. Android runs on the Linux kernel. There's a filesystem, processes, users, a network stack — everything a coding agent needs is technically there.
+Android runs on the Linux kernel. There's a filesystem, processes, users and a network stack. Technically, everything a coding agent needs is already there.
 
-What Android doesn't give you is the one interface a coding agent actually lives in: **a terminal**. No shell, no package manager, no way to `curl` an installer and run it. The Linux is there, it's just hidden behind icons.
+What's missing is a terminal. There's no shell, no package manager and no way to `curl` an installer and run it.
 
-That's where **[Termux](https://termux.dev)** comes in. Termux is a terminal emulator for Android that ships with a minimal Linux environment and its own package manager — no root required. Install the app (from F-Droid or its GitHub releases), open it, and you get a prompt:
+For that, we have [Termux](https://termux.dev). It's a terminal emulator for Android, with a minimal Linux environment and its own package manager. No root required.
+
+Install the app (from [F-Droid](https://f-droid.org/packages/com.termux/) or its [GitHub releases](https://github.com/termux/termux-app/releases)), open it and run the following command:
 
 ```console
 ~ $ pkg upgrade && pkg update -y
 ```
 
-That's the first command I ran. From here, the phone finally behaves like what it is: a small Linux box with a very nice screen.
+From here, the phone behaves like a small Linux box.
 
-But a terminal is a door, not a house. Termux gives you a shell and a curated set of packages built specifically for Android — it doesn't grow a full Linux distribution out of Android's guts. And a coding agent expects a regular Linux: standard paths, a standard C library, a standard package manager.
+But Termux alone is not enough. It provides a shell and a set of packages built specifically for Android, not a full Linux distribution.
 
----
+A coding agent expects a regular Linux, with standard paths, a standard C library and a standard package manager.
 
-## Moving a Linux distro into the phone
+## proot-distro
 
-For that, Termux has a very elegant answer: **[proot-distro](https://github.com/termux/proot-distro)**.
+To solve that, Termux has [proot-distro](https://github.com/termux/proot-distro).
 
-`proot` is a user-space trick: it intercepts a program's system calls and rewrites file paths on the fly, so a directory full of files looks like a complete root filesystem (`/`) to everything running inside it. No real root, no virtual machine, no emulation — processes run natively on the phone's CPU and on Android's own kernel. They just *believe* they're in a regular distro.
+[`proot`](https://proot-me.github.io/) intercepts the system calls of a program and rewrites file paths on the fly. That way, a directory looks like a complete root filesystem (`/`) to everything running inside it.
 
-`proot-distro` wraps that trick into a package manager for whole distributions. Installing it is one line in Termux:
+There's no real root, no virtual machine and no emulation. Processes run natively on the phone's CPU and on Android's kernel.
+
+`proot-distro` uses it to install and manage whole distributions. To install it, run in Termux:
 
 ```console
 ~ $ apt install -y proot-distro
 ```
 
-Running `proot-distro install` with no arguments lists the distributions you can pick. I went with Fedora:
+Running `proot-distro install` without arguments lists the available distributions. I chose Fedora:
 
 ```console
 ~ $ proot-distro install fedora:latest
 ~ $ proot-distro login fedora
 ```
 
-(Later on, I just used the short alias: `pd login fedora`.)
+> There's also a short alias, which I used later on: `pd login fedora`.
 
-And just like that, the prompt changes. Let's ask where we are:
+After logging in, the prompt changes. Let's check where we are:
 
 ```console
 [root@localhost ~]# uname -a
@@ -78,18 +80,18 @@ ID=fedora
 VERSION_ID=44
 ```
 
-Fedora 44, on an `aarch64` CPU, inside a phone. With `dnf`, with `/usr/bin`, with everything a regular Linux has.
+Fedora 44, on an `aarch64` CPU, inside a phone. With `dnf`, `/usr/bin` and everything else a regular Linux has.
 
-Well — *almost* everything. There's no real init system here. `systemctl` exists, but there's nothing for it to talk to:
+Well, almost everything. There's no real init system. `systemctl` exists, but there's nothing for it to talk to:
 
 ```console
 [root@localhost ~]# systemctl is-system-running
 offline
 ```
 
-No systemd, no services, no dbus. That's the "almost" in "almost a complete distro", and it will matter in future episodes. For today, it doesn't: a coding agent CLI is just a program you run in a shell.
+> No systemd, no services and no dbus. This will matter in future episodes. For now it doesn't, since a coding agent CLI is just a program running in a shell.
 
-And the phone doesn't forget it's a phone, either. Android is still right there, leaking through the environment:
+Android is also still visible through some environment variables:
 
 ```console
 [root@localhost ~]# echo $ANDROID_ROOT
@@ -98,33 +100,33 @@ And the phone doesn't forget it's a phone, either. Android is still right there,
 /data/data/com.termux/files/usr/var/lib/proot-distro/containers/fedora/rootfs/.l2s
 ```
 
-A Fedora living inside a Termux directory, inside Android. With a real distro in my pocket, the question stopped being *"can a phone run Linux?"* and became *"does it run Devin?"*
+A Fedora inside a Termux directory, inside Android.
 
----
+With a real distro running, the question changed from "can a phone run Linux?" to "does it run Devin?".
 
-## Installing Devin, poof
+## Devin
 
-This is the part where I expected trouble. There wasn't any.
+I expected some trouble here. There wasn't any.
 
-First, bring Fedora up to date:
+First, update Fedora:
 
 ```console
 [root@localhost ~]# dnf upgrade --refresh -y
 ```
 
-Then the exact same installer you'd use on a laptop:
+Then run the same installer used on a laptop:
 
 ```console
 [root@localhost ~]# curl -fsSL https://cli.devin.ai/install.sh | bash
 ```
 
-Then log in:
+And log in:
 
 ```console
 [root@localhost ~]# devin auth login
 ```
 
-That's it. Let's check:
+To verify the installation, run the following commands:
 
 ```console
 [root@localhost ~]# devin --version
@@ -148,38 +150,40 @@ Credentials:
 1 check(s): 1 passed, 0 warning(s), 0 failure(s)
 ```
 
-And the real test — asking Devin itself where it is, and making it check instead of guessing:
+Finally, the real test. Asking Devin itself where it's running, and making it check instead of guessing:
 
 ```console
 [root@localhost notes]# devin -p -- "In one short sentence: what OS and CPU architecture are you running on? Check with a command, don't guess."
 I'm running on Fedora Linux 44 (a PRoot container reporting kernel 6.17.0) on an aarch64 (ARM64) CPU.
 ```
 
-Poof. A coding agent, running on my phone, aware that it's running on my phone.
+A coding agent running on my phone, and aware of it.
 
-From there it's just a Linux machine with an agent on it. The usual developer kit is one `dnf` away:
+From here, it's a regular Linux machine. The usual tools are one `dnf` away:
 
 ```console
 [root@localhost ~]# dnf install git gh -y
 [root@localhost ~]# gh auth login
 ```
 
-Clone a repo, open `devin` in it, and start working — no home server, no VM, nothing but the phone.
+Clone a repository, run `devin` inside it and start working. No home server, no VM, only the phone.
 
-### Not just Devin
+### Other agents
 
-Nothing in this setup is specific to Devin. Once the phone is running a real Linux distro, it's just an `aarch64` Linux box — so **any coding agent that runs on Linux ARM64 works the same way**: Claude Code, opencode, Codex CLI, Gemini CLI, whatever your agent of choice is. Use its regular Linux installer (or `npm`, since Node is one `dnf install nodejs` away), log in, and you're done.
+Nothing in this setup is specific to Devin.
 
-Termux and proot-distro do the hard part: they turn the phone into a computer. Which agent you run on it is up to you.
+Once the phone runs a real Linux distro, it's an `aarch64` Linux machine. So any coding agent that runs on Linux ARM64 works the same way: Claude Code, opencode, Codex CLI, Gemini CLI and so on.
 
----
+Use its regular Linux installer (or `npm`, since Node is one `dnf install nodejs` away), log in and it's done.
 
-## What if... (next episode)
+Termux and proot-distro do the hard part, turning the phone into a computer. Which agent runs on it is up to you.
 
-So: it works. Devin runs on my phone, natively, inside a Fedora that lives inside Termux that lives inside Android.
+## Conclusion
 
-But let's be honest about the experience. A coding agent in a terminal, on a 6-inch touchscreen, with a soft keyboard that covers half the output... it works, but it's not *nice*. Terminals were designed for keyboards and big screens, not thumbs.
+It works. Devin runs natively on my phone, inside a Fedora that lives inside Termux, that lives inside Android.
 
-Which leads to the next question: **what if I didn't have to use the terminal at all?** What if a real mobile app could talk to the Devin running on the same phone?
+But the experience is not great. A coding agent in a terminal, on a 6-inch touchscreen, with a soft keyboard covering half of the output. It works, but it's not *nice*. Terminals were designed for keyboards and big screens, not thumbs.
 
-Tune in for the next episode of *What If*.
+Which leads to the next question: what if I didn't have to use the terminal at all? What if a real mobile app could talk to the Devin running on the same phone?
+
+That's for the next episode of *What If...*. Thanks!
