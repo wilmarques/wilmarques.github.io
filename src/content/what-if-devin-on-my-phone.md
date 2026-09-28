@@ -2,7 +2,7 @@
 title: "What If... Devin Ran on My Phone?"
 slug: 2026-09-27-what-if-devin-on-my-phone
 description: First entry in the "What If" series — turning an Android phone into a pocket Linux computer with Termux and proot-distro, and running the Devin CLI (or any coding agent) on it.
-coverImage: /images/what-if-devin-on-my-phone.svg
+coverImage: /images/what-if-devin-on-my-phone.png
 ---
 
 *This is the first post of a series I'm calling **What If...**. Small experiments that start with a slightly unreasonable question and end wherever the terminal takes me.*

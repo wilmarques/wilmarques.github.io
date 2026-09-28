@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { injectContent, MarkdownComponent } from '@analogjs/content';
 import { RouterLink } from '@angular/router';
+import { tap } from 'rxjs';
 
 import PostAttributes from '../../post-attributes';
+import { SeoService } from '../../seo';
 
 @Component({
   selector: 'app-blog-post',
@@ -87,5 +89,8 @@ import PostAttributes from '../../post-attributes';
   `,
 })
 export default class BlogPostComponent {
-  readonly post$ = injectContent<PostAttributes>('slug');
+  private readonly seo = inject(SeoService);
+  readonly post$ = injectContent<PostAttributes>('slug').pipe(
+    tap((post) => this.seo.setPost(post.attributes))
+  );
 }
