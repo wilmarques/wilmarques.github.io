@@ -206,9 +206,9 @@ One subtlety it handles: the gateway stores its database in the *current directo
 
 Devin now answers in a chat bubble, on the same phone it's running on. I can send it a task, put the phone down and read the result later.
 
-This is what it looks like, with Devin itself explaining how I'm calling it:
+This is what it looks like in action (sped up 1.5x):
 
-![Devin answering inside the Ferngeist chat ("You're talking to me through Ferngeist, a third-party app that connects to me via the Agent Client Protocol (ACP)")](/images/ferngeist-chat-devin.jpg)
+![Screen recording of a Ferngeist session on the phone: a prompt is sent, the agent streams its reasoning and answers in the chat](/images/ferngeist-demo.gif)
 
 It's not perfect. The daemon has to be woken manually after restarts, pairing codes expire fast and there's no push notification when a turn finishes. But it's a real app, with session history and an async feel, instead of a terminal squeezed onto a touchscreen.
 
