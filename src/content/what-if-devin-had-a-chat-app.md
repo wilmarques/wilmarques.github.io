@@ -2,7 +2,7 @@
 title: "What If... Devin Had a Chat App?"
 slug: 2026-10-09-what-if-devin-had-a-chat-app
 description: Second entry in the "What If" series — leaving the terminal behind and talking to the Devin CLI through a chat app on the same phone, using Ferngeist and the Agent Client Protocol.
-coverImage: /images/what-if-devin-had-a-chat-app.png
+coverImage: /images/what-if-devin-had-a-chat-app.svg
 ---
 
 *This is the second post of a series I'm calling **What If...**. Small experiments that start with a slightly unreasonable question and end wherever the terminal takes me. In the [first episode](/blog/2026-09-27-what-if-devin-on-my-phone), we got the Devin CLI running natively on an Android phone.*
