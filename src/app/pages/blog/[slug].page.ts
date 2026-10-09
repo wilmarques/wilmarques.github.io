@@ -91,6 +91,6 @@ import { SeoService } from '../../seo';
 export default class BlogPostComponent {
   private readonly seo = inject(SeoService);
   readonly post$ = injectContent<PostAttributes>('slug').pipe(
-    tap((post) => this.seo.setPost(post.attributes))
+    tap((post) => this.seo.setPost(post.attributes as PostAttributes))
   );
 }
