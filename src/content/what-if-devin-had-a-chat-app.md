@@ -146,6 +146,14 @@ The client piece is the [Ferngeist](https://github.com/arafatamim/ferngeist) app
 
 It's a regular Android app. On the surface it looks like a chat client: a list of sessions, a conversation view, a text field. Behind it, it speaks the gateway's HTTP and WebSocket API, which bridges to ACP.
 
+The home screen lists the agents it can talk to:
+
+![Ferngeist home screen listing agents, like Claude Agent, Grok Build and the Ferngeist GitHub Project](/images/ferngeist-agents.jpg)
+
+Inside a session, it's a normal chat. The agent's reasoning steps are collapsible and there's a token counter up top:
+
+![A Ferngeist session where the agent answers "What's Ferngeist about?", with a collapsed reasoning step and tool calls](/images/ferngeist-session.jpg)
+
 Sessions survive on the phone, so I can close the app, reopen it later and pick up a conversation where it stopped.
 
 ## Pairing
@@ -210,4 +218,4 @@ And since it's all ACP, nothing here is Devin-specific. Point the same gateway a
 
 The phone went from "runs a coding agent in a terminal" to "has a chat app for a coding agent", and everything stayed on the device.
 
-Thanks!
+See you on the next *What If...*. Thanks!
