@@ -31,66 +31,11 @@ import { SeoService } from '../../seo';
     </article>
     }
   `,
-  styles: `
-    .blog-post {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 0 4rem;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      margin-bottom: 2rem;
-      transition: color 0.2s ease;
-    }
-
-    .back-link:hover {
-      color: var(--color-accent);
-    }
-
-    .post-hero-image {
-      border-radius: 0.75rem;
-      overflow: hidden;
-      margin-bottom: 2rem;
-      border: 1px solid var(--color-border);
-    }
-
-    .post-hero-image img {
-      width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .post-header {
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .post-title {
-      font-size: 2.25rem;
-      line-height: 1.2;
-    }
-
-    .post-content {
-      font-size: 1.0625rem;
-      line-height: 1.8;
-    }
-
-    @media (max-width: 640px) {
-      .post-title {
-        font-size: 1.75rem;
-      }
-    }
-  `,
+  styleUrl: './[slug].page.css',
 })
 export default class BlogPostComponent {
   private readonly seo = inject(SeoService);
   readonly post$ = injectContent<PostAttributes>('slug').pipe(
-    tap((post) => this.seo.setPost(post.attributes))
+    tap((post) => this.seo.setPost(post.attributes as PostAttributes))
   );
 }

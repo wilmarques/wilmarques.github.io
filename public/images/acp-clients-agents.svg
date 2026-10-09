@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="400" viewBox="0 0 760 400" font-family="'JetBrains Mono','Fira Code',Menlo,Consolas,monospace">
+  <rect width="760" height="400" fill="#0b0f14" rx="12"/>
+
+  <!-- column titles -->
+  <text x="145" y="48" font-size="15" fill="#8b949e" text-anchor="middle">clients</text>
+  <text x="615" y="48" font-size="15" fill="#8b949e" text-anchor="middle">agents</text>
+
+  <!-- ACP spine -->
+  <rect x="330" y="150" width="100" height="100" rx="14" fill="#10161d" stroke="#38bdf8" stroke-width="2.5"/>
+  <text x="380" y="206" font-size="24" font-weight="700" fill="#38bdf8" text-anchor="middle">ACP</text>
+
+  <!-- connectors: clients to ACP -->
+  <g stroke="#6e7681" stroke-width="1.5" fill="none">
+    <path d="M 245 90  C 290 90, 290 178, 328 182"/>
+    <path d="M 245 160 L 328 195"/>
+    <path d="M 245 240 L 328 205"/>
+    <path d="M 245 310 C 290 310, 290 222, 328 218"/>
+  </g>
+  <!-- connectors: ACP to agents -->
+  <g stroke="#6e7681" stroke-width="1.5" fill="none">
+    <path d="M 432 182 C 470 178, 470 90, 515 90"/>
+    <path d="M 432 195 L 515 160"/>
+    <path d="M 432 205 L 515 240"/>
+    <path d="M 432 218 C 470 222, 470 310, 515 310"/>
+  </g>
+
+  <!-- client boxes -->
+  <g font-size="15" fill="#e6edf3">
+    <rect x="60" y="68" width="185" height="44" rx="10" fill="#10161d" stroke="#3DDC84" stroke-width="2"/>
+    <text x="78" y="96">Ferngeist <tspan fill="#8b949e">(Android)</tspan></text>
+
+    <rect x="60" y="138" width="185" height="44" rx="10" fill="#10161d" stroke="#e6edf3" stroke-width="1.5" opacity="0.9"/>
+    <text x="78" y="166">Zed <tspan fill="#8b949e">(editor)</tspan></text>
+
+    <rect x="60" y="218" width="185" height="44" rx="10" fill="#10161d" stroke="#e6edf3" stroke-width="1.5" opacity="0.9"/>
+    <text x="78" y="246">an editor plugin</text>
+
+    <rect x="60" y="288" width="185" height="44" rx="10" fill="#10161d" stroke="#e6edf3" stroke-width="1.5" opacity="0.9"/>
+    <text x="78" y="316">your own script</text>
+  </g>
+
+  <!-- agent boxes -->
+  <g font-size="15" fill="#e6edf3">
+    <rect x="515" y="68" width="200" height="44" rx="10" fill="#10161d" stroke="#c4a7ff" stroke-width="2"/>
+    <text x="533" y="96">Devin <tspan fill="#8b949e">(devin acp)</tspan></text>
+
+    <rect x="515" y="138" width="200" height="44" rx="10" fill="#10161d" stroke="#e6edf3" stroke-width="1.5" opacity="0.9"/>
+    <text x="533" y="166">Claude Code</text>
+
+    <rect x="515" y="218" width="200" height="44" rx="10" fill="#10161d" stroke="#e6edf3" stroke-width="1.5" opacity="0.9"/>
+    <text x="533" y="246">Gemini CLI</text>
+
+    <rect x="515" y="288" width="200" height="44" rx="10" fill="#10161d" stroke="#6e7681" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <text x="533" y="316" fill="#8b949e">any ACP agent</text>
+  </g>
+
+  <text x="380" y="382" font-size="14" fill="#8b949e" text-anchor="middle">any client talks to any agent</text>
+</svg>
