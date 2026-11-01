@@ -41,7 +41,8 @@ interface Company {
         Artificial Intelligence, Developer Experience, and Agentic AI. Experienced in leading
         AI-driven SDLC initiatives, architecting enterprise AI solutions and reusable platforms,
         and building agentic workflows on top of a solid background in front-end architecture and
-        technical leadership.
+        technical leadership. Strong track record of enabling teams, driving technology adoption,
+        and acting as a trusted technical advisor to internal stakeholders.
       </p>
     </section>
 
@@ -320,11 +321,11 @@ export default class ExperiencePageComponent {
     },
     {
       name: 'Developer Experience',
-      skills: ['Engineering Communities', 'Quality Standards', 'Technical Advocacy', 'SDLC Automation', 'Technical Content'],
+      skills: ['Engineering Communities', 'Quality Standards', 'Technical Advocacy', 'SDLC Automation', 'Technical Content', 'Adoption Enablement'],
     },
     {
       name: 'Other',
-      skills: ['TypeScript', 'JavaScript', 'C#', '.NET', 'Technical Leadership'],
+      skills: ['TypeScript', 'JavaScript', 'C#', '.NET', 'Technical Leadership', 'Stakeholder Management'],
     },
   ];
 
@@ -340,15 +341,15 @@ export default class ExperiencePageComponent {
           period: 'Sep 2024 - Present',
           duration: '1 year 11 months',
           location: 'São Paulo, Brazil',
-          description: 'Leading the AI-driven Software Development Lifecycle (SDLC) initiative at Santander Brazil. Responsible for the technical implementation of GitHub Copilot, Devin (Cognition AI) and Windsurf across the organization — defining adoption strategies, integration with internal environments and development processes. Driving Specification Driven Development with AI using GitHub SpecKit, OpenSpec, BMAD Method and AWS AI-DLC workflows. Leveraging Markdown, MCPs and Agent Skills as the foundation for agentic workflows. Mission to implement the Artificial Intelligence Development Lifecycle (AI-DLC) across the Santander Group.',
-          skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'English'],
+          description: 'Leading the AI-driven SDLC initiative at Santander Brazil (and influencing the same direction at Group level). Drove adoption of GitHub Copilot and the later move to Devin, reaching over 80% adoption by setting up the foundations (environments, processes, and enablement). Defined how the organization should create agents and supporting content for Coding Agents — using Markdown, Agent Skills, and MCPs to keep lock-in low. Coordinated the teams involved, ran training and workshops, and aligned needs with stakeholders. Now working on moving from isolated copilots to AI connected across the full SDLC (ideation to production), and leading the global implementation of AWS AI-DLC.',
+          skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'Adoption Enablement', 'English'],
         },
         {
           title: 'AI Architect',
           period: 'Jan 2024 - Sep 2024',
           duration: '9 months',
           location: 'São Paulo, Brazil',
-          description: 'Architected two enterprise-scale AI solutions for the Santander Group. Designed the Global AI Platform — a reusable foundation for all AI solutions across the Group, built with Python and Java, deployed on Azure. Built an intelligent technology upgrade solution that automates repository modernization (e.g., Angular 12 to 20), implementing a ReAct (Reasoning + Acting) agent architecture on AWS using Amazon Bedrock and DynamoDB.',
+          description: 'Architected two enterprise AI solutions for the Santander Group. Designed the Global AI Platform as a reusable base for building internal agents. Built a solution that automates repository modernization (started with Java upgrades using internal frameworks, later expanded to Angular and Python). Hit over 90% accuracy with a specification-driven approach before that became the usual way. Worked on needs discovery and key technical decisions. The solution was positioned for global rollout after strong results in Brazil.',
           skills: ['Python', 'Java', 'Azure', 'AWS', 'Amazon Bedrock', 'DynamoDB', 'ReAct Agents', 'LLM', 'AI Architecture', 'Cloud Computing', 'English'],
         },
         {
@@ -356,16 +357,16 @@ export default class ExperiencePageComponent {
           period: 'Mar 2023 - Dec 2023',
           duration: '10 months',
           location: 'São Paulo, Brazil',
-          description: 'Founded and ran engineering Chapters — internal communities focused on raising software quality and accelerating knowledge sharing across teams. Produced technical content, defined quality standards, and established feedback loops between developers and platform teams.',
-          skills: ['Developer Experience', 'Technical Writing', 'Software Quality', 'Internal Tooling', 'Knowledge Management', 'Platform Engineering'],
+          description: 'Led the Front-end Chapter. Built an internal community focused on knowledge sharing and adopting better practices. Organized regular meetings and supported workshops from the platform teams. Helped different teams collaborate — for example, bringing people together to build a solid telemetry solution. Started a single internal knowledge portal where Chapters and CoEs publish docs in Markdown. It solved the usual problem of not knowing where to find internal standards, and today it’s widely used (and useful for AI agents).',
+          skills: ['Developer Experience', 'Technical Writing', 'Software Quality', 'Internal Tooling', 'Knowledge Management', 'Platform Engineering', 'Community Building'],
         },
         {
           title: 'Front-end Architect',
           period: 'Feb 2018 - Feb 2023',
           duration: '5 years',
           location: 'São Paulo, Brazil',
-          description: 'Designed and built an internal Angular-based framework adopted across the company. It standardized how web applications were structured, tested, and deployed — improving consistency and reducing onboarding time for new teams.',
-          skills: ['Angular', 'Internal Platforms', 'JavaScript', 'Web Components', 'Scalable Architecture', 'Technical Writing', 'English'],
+          description: 'Led (with my team) the definition, governance, and adoption of Angular 2+ across Santander Brazil. Acted as an enabler for other squads building applications (branch managers, customer service, internet banking, and others). Ran frequent training sessions and workshops, created documentation and standards used by all teams, and turned internal needs into requirements for the platform team. Regularly aligned priorities with C-level stakeholders (including the CTO). The success of the implementations depended on understanding what the squads needed and helping them succeed with the accelerators and patterns we provided.',
+          skills: ['Angular', 'Internal Platforms', 'JavaScript', 'Web Components', 'Scalable Architecture', 'Technical Writing', 'Stakeholder Management', 'Enablement', 'English'],
         },
       ],
     },
@@ -377,8 +378,8 @@ export default class ExperiencePageComponent {
           period: 'Jun 2017 - Feb 2018',
           duration: '9 months',
           location: 'São Paulo, Brazil',
-          description: 'Led a front-end team — handled coordination, onboarding, and training. Set coding standards and oversaw delivery of AngularJS and Angular projects.',
-          skills: ['Angular', 'JavaScript', 'Leadership'],
+          description: 'Worked as a consultant. Delivered AngularJS training to three groups (~15 people each) and helped select people for allocation at the client (Santander). Later allocated inside Santander as a third-party consultant, working in a Scrum squad implementing internal systems based on needs from the Product Owner. Became a technical reference, which helped with later internalization.',
+          skills: ['Angular', 'JavaScript', 'Leadership', 'Training', 'Consulting'],
         },
       ],
     },
@@ -390,8 +391,8 @@ export default class ExperiencePageComponent {
           period: 'Oct 2015 - Jun 2017',
           duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
-          description: 'Built and maintained web applications using C#, Angular, and JavaScript.',
-          skills: ['C#', 'Angular', 'JavaScript'],
+          description: 'Developed web applications using C#, AngularJS, and JavaScript. Led the creation of a web system with AngularJS and delivered internal training on the technology. Became one of the main front-end references in the company, helping developers who came from other technology backgrounds.',
+          skills: ['C#', 'Angular', 'JavaScript', 'Technical Mentoring'],
         },
       ],
     },
@@ -403,8 +404,8 @@ export default class ExperiencePageComponent {
           period: 'Feb 2014 - Oct 2015',
           duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
-          description: 'Worked across desktop, web, and mobile projects using C# and JavaScript.',
-          skills: ['C#', 'JavaScript'],
+          description: 'Developed desktop (Windows Forms/WPF), web (ASP.NET, KnockoutJS, AngularJS), and mobile solutions in C# and JavaScript. Allocated directly inside client environments (SAMU, CET, and Polícia Civil de SP). Understood operational needs, implemented solutions on-site, managed small teams (2–3 people) during deployments, and trained end users. At SAMU, trained around 50 operators and supported a high-pressure one-day deployment of a mission-critical system. At CET, combined needs discovery, deployment management, and client satisfaction under operational continuity constraints.',
+          skills: ['C#', 'JavaScript', 'Client Implementation', 'User Training', 'Deployment Management'],
         },
       ],
     },
