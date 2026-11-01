@@ -341,7 +341,7 @@ export default class ExperiencePageComponent {
           period: 'Sep 2024 - Present',
           duration: '1 year 11 months',
           location: 'São Paulo, Brazil',
-          description: 'Leading the AI-driven SDLC initiative at Santander Brazil (and influencing the same direction at Group level). Drove adoption of GitHub Copilot and the later move to Devin, reaching over 80% adoption by setting up the foundations (environments, processes, and enablement). Defined how the organization should create agents and supporting content for Coding Agents — using Markdown, Agent Skills, and MCPs to keep lock-in low. Coordinated the teams involved, ran training and workshops, and aligned needs with stakeholders. Now working on moving from isolated copilots to AI connected across the full SDLC (ideation to production), and leading the global implementation of AWS AI-DLC.',
+          description: 'Leading the AI-driven SDLC initiative at Santander Brazil (and influencing the same direction at Group level). Drove adoption of GitHub Copilot and the later move to Devin, reaching over 80% adoption by setting up the foundations (environments, processes, and enablement). Defined how the organization should create agents and supporting content for Coding Agents — using Markdown, Agent Skills, and MCPs to keep lock-in low. Coordinated the teams involved, ran training and workshops, and aligned needs with stakeholders. Now working on moving from isolated copilots to AI connected across the full SDLC (ideation to production).',
           skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'Adoption Enablement', 'English'],
         },
         {
