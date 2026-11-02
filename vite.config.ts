@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => ({
         highlighter: 'shiki',
         shikiOptions: {
           highlighter: {
-            additionalLangs: ['shellsession'],
+            additionalLangs: ['shellsession', 'bash', 'dart', 'typescript', 'javascript'],
           },
         },
       },
