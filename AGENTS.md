@@ -10,3 +10,7 @@
 - Dev server: `npm run dev` (Vite, http://localhost:5173)
 - Build: `npm run build`
 - Tests: `npm test`
+
+## Commits and PRs
+
+- Use [Conventional Commits](https://www.conventionalcommits.org/) for commit messages and PR titles, e.g. `feat: add experiences page`, `fix(experience): broken skill links`.

@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 
 export const routeMeta: RouteMeta = {
-  title: 'Experience - Wiley (Wil) Marques',
+  title: 'AI Solutions & Experience - Wiley (Wil) Marques',
   meta: [
-    { name: 'description', content: "Wiley (Wil) Marques' professional experience" },
-    { property: 'og:title', content: "Wiley (Wil) Marques' professional experience" },
+    { name: 'description', content: 'Enterprise AI architecture, agentic SDLC and developer adoption. Explore Wiley Marques’ work at Santander and his customer-facing delivery experience.' },
+    { property: 'og:title', content: 'AI Solutions & Experience - Wiley (Wil) Marques' },
+    { property: 'og:description', content: 'Enterprise AI architecture, agentic SDLC and developer adoption. Explore Wiley Marques’ work at Santander and his customer-facing delivery experience.' },
   ],
 };
 
 interface Role {
   title: string;
   period: string;
-  duration: string;
   location: string;
   description: string[];
   skills: string[];
@@ -26,83 +28,116 @@ interface SkillGroup {
 interface Company {
   name: string;
   note?: string;
-  totalDuration?: string;
   location?: string;
   roles: Role[];
 }
 
 @Component({
   selector: 'app-experience',
+  imports: [NgTemplateOutlet, RouterLink],
   template: `
-    <section class="experience-hero">
-      <h1>Professional <span class="gradient-text">Experience</span></h1>
+    <section class="experience-hero" aria-labelledby="experience-title">
+      <p class="eyebrow">Wiley (Wil) Marques / Experience</p>
+      <h1 id="experience-title">AI Solutions Architect<br>& <span class="gradient-text">Agentic SDLC Lead</span></h1>
       <div class="experience-intro">
         <p>
-          Software Engineer with 12+ years in software development. The last 3+ years cover
-          Artificial Intelligence, Developer Experience and Agentic AI: AI-driven SDLC, enterprise
-          platforms and agentic workflows. Before that, front-end architecture and technical
-          leadership.
+          I design enterprise AI solutions and agentic workflows, and help engineering teams adopt them.
+          At F1RST Digital Services, part of Santander Group, I lead the AI-driven software development
+          lifecycle initiative in Brazil.
         </p>
+        <p class="hero-context">Software development since 2012. Architecture, hands-on delivery and developer enablement.</p>
+      </div>
+      <div class="experience-actions">
+        <a class="btn primary-action" href="#selected-solutions">Explore selected solutions <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="https://linkedin.com/in/wilmarquesdev">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+      </div>
+      <ul class="evidence-strip" aria-label="Experience highlights">
+        <li><strong>Enterprise AI</strong><span>Solutions architected for Santander Group</span></li>
+        <li><strong>Agent adoption</strong><span>GitHub Copilot and Devin rollout and enablement</span></li>
+        <li><strong>Modernization</strong><span>Repository upgrades across Java, Angular and Python</span></li>
+      </ul>
+    </section>
+
+    <section id="selected-solutions" class="solutions-section" aria-labelledby="solutions-title">
+      <p class="eyebrow">Selected work / Santander</p>
+      <h2 id="solutions-title" class="section-title">Agentic solutions & adoption</h2>
+      <div class="solutions-grid">
+        @for (solution of solutions; track solution.title) {
+          <article class="solution-card">
+            <p class="solution-category">{{ solution.category }}</p>
+            <h3>{{ solution.title }}</h3>
+            <p>{{ solution.context }}</p>
+            <dl>
+              <dt>My contribution</dt>
+              <dd>{{ solution.contribution }}</dd>
+              <dt>Delivery & scope</dt>
+              <dd>{{ solution.delivery }}</dd>
+            </dl>
+          </article>
+        }
       </div>
     </section>
 
-    <section class="timeline">
-      @for (company of companies; track company.name) {
-        <div class="timeline-company">
-          <div class="company-header">
-            <h2 class="company-name">{{ company.name }}</h2>
-            @if (company.note) {
-              <span class="company-note">{{ company.note }}</span>
-            }
-            @if (company.totalDuration) {
-              <div class="company-meta">
-                <span class="meta-duration">{{ company.totalDuration }}</span>
-                @if (company.location) {
-                  <span class="meta-separator">&middot;</span>
-                  <span class="meta-location">{{ company.location }}</span>
-                }
-              </div>
-            }
+    <ng-template #companyRoles let-company>
+      @for (role of company.roles; track role.title) {
+        <article class="role-card">
+          <div class="role-indicator" aria-hidden="true">
+            <div class="role-dot"></div>
+            @if (!$last) { <div class="role-line"></div> }
           </div>
+          <div class="role-content">
+            <h4 class="role-title">{{ role.title }}</h4>
+            <div class="role-meta">
+              <span>{{ role.period }}</span>
+              <span class="meta-separator" aria-hidden="true">&middot;</span>
+              <span>{{ role.location }}</span>
+            </div>
+            <ul class="role-description">
+              @for (item of role.description; track $index) { <li>{{ item }}</li> }
+            </ul>
+            <div class="role-skills">
+              @for (skill of role.skills; track skill) { <span class="skill-tag">{{ skill }}</span> }
+            </div>
+          </div>
+        </article>
+      }
+    </ng-template>
 
-          @for (role of company.roles; track role.title) {
-            <div class="role-card">
-              <div class="role-indicator">
-                <div class="role-dot"></div>
-                @if (!$last) {
-                  <div class="role-line"></div>
-                }
-              </div>
-              <div class="role-content">
-                <h3 class="role-title">{{ role.title }}</h3>
-                <div class="role-meta">
-                  <span>{{ role.period }}</span>
-                  <span class="meta-separator">&middot;</span>
-                  <span>{{ role.duration }}</span>
-                  <span class="meta-separator">&middot;</span>
-                  <span>{{ role.location }}</span>
-                </div>
-                @if (role.description.length) {
-                  <ul class="role-description">
-                    @for (item of role.description; track $index) {
-                      <li>{{ item }}</li>
-                    }
-                  </ul>
-                }
-                <div class="role-skills">
-                  @for (skill of role.skills; track skill) {
-                    <span class="skill-tag">{{ skill }}</span>
-                  }
-                </div>
-              </div>
+    <section class="timeline" aria-labelledby="career-title">
+      <div>
+        <p class="eyebrow">Career</p>
+        <h2 id="career-title" class="section-title">Architecture, delivery & enablement</h2>
+      </div>
+      <div class="timeline-company">
+        <div class="company-header">
+          <h3 class="company-name">{{ currentCompany.name }} <span class="company-group">/ Santander Group</span></h3>
+          <p class="company-note">{{ currentCompany.note }}</p>
+          <p class="company-meta">Feb 2018 – Present · {{ currentCompany.location }}</p>
+          <p class="company-languages">Collaborating with international teams in English and Spanish.</p>
+        </div>
+        <ng-container [ngTemplateOutlet]="companyRoles" [ngTemplateOutletContext]="{ $implicit: currentCompany }" />
+      </div>
+      <div class="earlier-experience">
+        <h3>Earlier customer-facing & engineering experience</h3>
+        <p class="earlier-highlight">
+          At Hexagon IT Solutions, I worked on site with SAMU, CET and Polícia Civil de SP,
+          translating operational needs into systems, coordinating deployments and training users.
+          This included training around 50 SAMU operators.
+        </p>
+        <details>
+          <summary>View earlier roles <span>2010–2018</span></summary>
+          @for (company of earlierCompanies; track company.name) {
+            <div class="timeline-company">
+              <h3 class="company-name">{{ company.name }}</h3>
+              <ng-container [ngTemplateOutlet]="companyRoles" [ngTemplateOutletContext]="{ $implicit: company }" />
             </div>
           }
-        </div>
-      }
+        </details>
+      </div>
     </section>
 
-    <section class="skills-section">
-      <h2 class="section-title">Key Skills</h2>
+    <section class="skills-section" aria-labelledby="skills-title">
+      <h2 id="skills-title" class="section-title">Technical capabilities</h2>
       <div class="skills-grid">
         @for (group of skillGroups; track group.name) {
           <div class="skill-group">
@@ -116,17 +151,235 @@ interface Company {
         }
       </div>
     </section>
+
+    <section class="writing-section" aria-labelledby="writing-title">
+      <p class="eyebrow">Public work</p>
+      <h2 id="writing-title" class="section-title">Experiments & technical writing</h2>
+      <p>Personal experiments with coding agents, separate from my enterprise work.</p>
+      <div class="writing-grid">
+        <a class="writing-card" routerLink="/blog/2026-10-09-what-if-devin-had-a-chat-app">
+          <span class="solution-category">Integration experiment</span>
+          <h3>Connecting a chat app to a coding agent <span aria-hidden="true">↗</span></h3>
+          <p>Devin CLI, the Agent Client Protocol and a mobile chat interface.</p>
+        </a>
+        <a class="writing-card" routerLink="/blog/2026-09-27-what-if-devin-on-my-phone">
+          <span class="solution-category">Developer environment experiment</span>
+          <h3>Running a coding agent on Android <span aria-hidden="true">↗</span></h3>
+          <p>Exploring a local agent workflow with Termux and Linux on a phone.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">Work together</p>
+        <h2 id="contact-title">Let’s talk about agentic solutions.</h2>
+        <p>Enterprise AI architecture, developer workflows and technical adoption.</p>
+        <a class="btn primary-action" href="https://linkedin.com/in/wilmarquesdev">Connect on LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="https://github.com/wilmarques">Explore my GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
   `,
   styles: `
+    :host {
+      display: block;
+    }
+
+    section[id] {
+      scroll-margin-top: 6rem;
+    }
+
+    a:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 5px;
+      border-radius: 0.25rem;
+    }
+
+    .eyebrow,
+    .solution-category {
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .experience-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.25rem;
+      margin-top: 1.75rem;
+    }
+
+    .primary-action {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      color: var(--color-bg);
+      font-weight: 600;
+    }
+
+    .primary-action:hover {
+      background: var(--color-accent-hover);
+      color: var(--color-bg);
+    }
+
+    .text-link {
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: inline-block;
+    }
+
+    .evidence-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      padding: 1.5rem 0;
+      margin: 2.5rem 0 0;
+      list-style: none;
+      border-block: 1px solid var(--color-border);
+      gap: 1.5rem;
+    }
+
+    .evidence-strip strong,
+    .evidence-strip span {
+      display: block;
+    }
+
+    .evidence-strip strong {
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .evidence-strip span {
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    .solutions-section,
+    .writing-section {
+      padding: 1rem 0 4rem;
+    }
+
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .solution-card,
+    .writing-card {
+      padding: 1.5rem;
+      border: 1px solid var(--color-border);
+      border-radius: 0.75rem;
+      background: var(--color-bg-card);
+    }
+
+    .solution-card h3 {
+      font-size: 1.125rem;
+    }
+
+    .solution-card p:not(.solution-category),
+    .solution-card dd,
+    .writing-card p {
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+
+    .solution-card dl,
+    .writing-card p {
+      margin-bottom: 0;
+    }
+
+    .solution-card dt {
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 1.25rem;
+      margin-bottom: 0.375rem;
+      color: var(--color-text);
+    }
+
+    .solution-card dd {
+      margin: 0;
+      color: #cbd5e1;
+    }
+
+    .company-group {
+      color: var(--color-text-secondary);
+      font-weight: 400;
+    }
+
+    .earlier-experience {
+      padding-top: 0.5rem;
+    }
+
+    .earlier-highlight {
+      max-width: 800px;
+    }
+
+    details {
+      border-block: 1px solid var(--color-border);
+    }
+
+    summary {
+      padding: 1rem 0;
+      cursor: pointer;
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    summary span {
+      margin-left: 0.75rem;
+      color: var(--color-text-secondary);
+      font-size: 0.875rem;
+    }
+
+    details .timeline-company {
+      margin: 1rem 0 2rem;
+    }
+
+    details .company-name {
+      font-size: 1.125rem;
+    }
+
+    .writing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .writing-card:hover {
+      border-color: var(--color-accent);
+    }
+
+    .writing-card h3 {
+      font-size: 1.125rem;
+      margin-top: 0.75rem;
+    }
+
+    .contact-section {
+      border-top: 1px solid var(--color-border);
+      padding: 2.5rem 0;
+    }
+
+    .contact-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .contact-section .text-link {
+      margin: 1rem 0 0 1rem;
+    }
+
     /* ===== Experience Hero ===== */
     .experience-hero {
-      padding: 3rem 0 2rem;
-      max-width: 640px;
+      padding: 2rem 0 3rem;
     }
 
     .experience-hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+      max-width: 850px;
     }
 
     .experience-intro p {
@@ -134,6 +387,11 @@ interface Company {
       line-height: 1.75;
       color: var(--color-text-secondary);
       margin: 0 0 0.75rem;
+      max-width: 740px;
+    }
+
+    .experience-intro .hero-context {
+      font-size: 0.875rem;
     }
 
     .experience-intro p:last-child {
@@ -142,10 +400,10 @@ interface Company {
 
     /* ===== Timeline ===== */
     .timeline {
-      padding: 2rem 0 4rem;
+      padding: 0 0 4rem;
       display: flex;
       flex-direction: column;
-      gap: 3rem;
+      gap: 1.5rem;
     }
 
     /* ===== Company ===== */
@@ -165,7 +423,7 @@ interface Company {
     .company-note {
       display: block;
       font-size: 0.8125rem;
-      color: var(--color-text-muted);
+      color: var(--color-text-secondary);
       font-style: italic;
       margin-bottom: 0.25rem;
     }
@@ -175,7 +433,14 @@ interface Company {
       align-items: center;
       gap: 0.5rem;
       font-size: 0.875rem;
-      color: var(--color-text-muted);
+      color: var(--color-text-secondary);
+      margin: 0;
+    }
+
+    .company-languages {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin: 0.25rem 0 0;
     }
 
     .meta-separator {
@@ -240,7 +505,7 @@ interface Company {
       align-items: center;
       gap: 0.5rem;
       font-size: 0.8125rem;
-      color: var(--color-text-muted);
+      color: var(--color-text-secondary);
       margin-bottom: 0.75rem;
     }
 
@@ -252,7 +517,7 @@ interface Company {
     .role-description li {
       font-size: 0.9375rem;
       line-height: 1.6;
-      color: var(--color-text-secondary);
+      color: #cbd5e1;
       margin: 0 0 0.4rem;
     }
 
@@ -270,7 +535,7 @@ interface Company {
       display: inline-block;
       padding: 0.2rem 0.625rem;
       border-radius: 9999px;
-      font-size: 0.6875rem;
+      font-size: 0.75rem;
       font-weight: 500;
       background: var(--color-accent-subtle);
       color: var(--color-accent);
@@ -289,7 +554,7 @@ interface Company {
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1.5rem;
     }
 
@@ -306,13 +571,41 @@ interface Company {
     }
 
     /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 640px) {
-      .skills-grid {
+      .skills-grid,
+      .evidence-strip,
+      .writing-grid {
         grid-template-columns: 1fr;
       }
 
-      .experience-hero h1 {
-        font-size: 2rem;
+      .experience-hero {
+        padding-top: 1rem;
+      }
+
+      .company-group {
+        display: block;
+        font-size: 1.125rem;
+        margin-top: 0.25rem;
+      }
+
+      .role-card {
+        gap: 0.75rem;
+      }
+
+      .role-content {
+        min-width: 0;
+        padding: 1.125rem;
+      }
+
+      .contact-section .text-link {
+        display: block;
+        margin-left: 0;
       }
 
       .role-meta {
@@ -328,22 +621,39 @@ interface Company {
   `,
 })
 export default class ExperiencePageComponent {
+  solutions = [
+    {
+      category: 'Workflow adoption',
+      title: 'Agentic SDLC rollout',
+      context: 'Introducing AI coding tools into Santander Brazil’s development workflows.',
+      contribution: 'Led the rollout of GitHub Copilot, then Devin, combining environment setup, processes, workshops and stakeholder alignment.',
+      delivery: 'Defined shared practices for coding agents using Markdown, Agent Skills and MCP to limit vendor lock-in. The broader SDLC initiative is ongoing.',
+    },
+    {
+      category: 'Applied AI engineering',
+      title: 'Repository modernization',
+      context: 'Using AI to upgrade repositories built on internal frameworks.',
+      contribution: 'Built a specification-driven modernization solution, starting with Java upgrades and extending it to Angular and Python.',
+      delivery: 'Handled needs discovery and key technical decisions. Results in Brazil positioned the solution for a global rollout.',
+    },
+  ];
+
   skillGroups: SkillGroup[] = [
     {
       name: 'AI & Agentic Systems',
-      skills: ['ReAct Agents', 'Multi-agent Architectures', 'LLMs', 'Amazon Bedrock', 'GitHub Copilot', 'Devin', 'Windsurf', 'AI-DLC', 'Specification Driven Development', 'MCP', 'Agent Skills'],
+      skills: ['ReAct Agents', 'Multi-agent Architectures', 'Amazon Bedrock', 'MCP', 'Agent Skills', 'Specification Driven Development'],
     },
     {
       name: 'Architecture & Platforms',
-      skills: ['Enterprise AI Platforms', 'Azure', 'AWS', 'Python', 'Java', 'Angular Frameworks', 'Component Libraries', 'Scalable Architecture'],
+      skills: ['Enterprise AI Architecture', 'Azure', 'AWS', 'Python', 'Java', 'Angular'],
     },
     {
       name: 'Developer Experience',
-      skills: ['Engineering Communities', 'Quality Standards', 'Technical Advocacy', 'SDLC Automation', 'Technical Content', 'Adoption Enablement'],
+      skills: ['GitHub Copilot', 'Devin', 'AI-DLC', 'SDLC Automation', 'Technical Writing', 'Adoption Enablement'],
     },
     {
-      name: 'Other',
-      skills: ['TypeScript', 'JavaScript', 'C#', '.NET', 'Technical Leadership', 'Stakeholder Management'],
+      name: 'Engineering & Technical Leadership',
+      skills: ['TypeScript', 'C# / .NET', 'Technical Leadership', 'Stakeholder Management', 'Customer Discovery', 'Deployment Management'],
     },
   ];
 
@@ -351,65 +661,53 @@ export default class ExperiencePageComponent {
     {
       name: 'F1RST Digital Services',
       note: 'Previously known as Santander Tecnologia Brasil.',
-      totalDuration: '8 years 6 months',
       location: 'São Paulo, Brazil',
       roles: [
         {
           title: 'Developer Experience Lead (Agentic SDLC)',
           period: 'Sep 2024 - Present',
-          duration: '1 year 11 months',
           location: 'São Paulo, Brazil',
           description: [
-            'Lead the AI-driven SDLC initiative at Santander Brazil, with the same direction at Group level.',
-            'Drove adoption of GitHub Copilot, then Devin, past 80% after setting up environments, processes and enablement.',
-            'Defined how coding agents and their content are built, on Markdown, Agent Skills and MCPs, to keep lock-in low.',
-            'Coordinated the teams on the rollout, including training, workshops and alignment with stakeholders.',
-            'Currently reworking the whole SDLC across Santander, connecting AI from idea to production.',
+            'Lead the AI-driven SDLC initiative in Brazil, aligned with the Santander Group direction.',
+            'Drove adoption of GitHub Copilot, then Devin, through environment setup, rollout processes and developer enablement.',
+            'Defined shared practices for coding agents and their content using Markdown, Agent Skills and MCP to limit vendor lock-in.',
+            'Coordinate rollout teams, training and workshops, aligning stakeholders as the initiative extends across the development lifecycle.',
           ],
-          skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'Adoption Enablement', 'English'],
+          skills: ['GitHub Copilot', 'Devin', 'MCP', 'Agent Skills', 'AI-DLC', 'Adoption Enablement'],
         },
         {
           title: 'AI Architect',
           period: 'Jan 2024 - Sep 2024',
-          duration: '9 months',
           location: 'São Paulo, Brazil',
           description: [
-            'Architected two enterprise AI solutions for the Santander Group.',
-            'Designed the Global AI Platform as a reusable base for internal agents.',
-            'Built repository modernization that started with Java upgrades on internal frameworks, then expanded to Angular and Python.',
-            'Reached over 90% accuracy with a specification-driven approach, before that became the usual way.',
-            'Handled needs discovery and the key technical decisions.',
-            'Positioned the solution for a global rollout after the results in Brazil.',
+            'Architected enterprise AI solutions for Santander Group, owning needs discovery and key technical decisions.',
+            'Built specification-driven repository modernization, starting with Java upgrades on internal frameworks and expanding to Angular and Python.',
+            'Positioned the modernization solution for a global rollout after results in Brazil.',
           ],
-          skills: ['Python', 'Java', 'Azure', 'AWS', 'Amazon Bedrock', 'DynamoDB', 'ReAct Agents', 'LLM', 'AI Architecture', 'Cloud Computing', 'English'],
+          skills: ['Python', 'Java', 'Azure', 'AWS', 'Amazon Bedrock', 'ReAct Agents'],
         },
         {
           title: 'Developer Experience Expert',
           period: 'Mar 2023 - Dec 2023',
-          duration: '10 months',
           location: 'São Paulo, Brazil',
           description: [
-            'Led the Front-end Chapter, an internal community for sharing knowledge and adopting better practices.',
-            'Ran regular meetings and supported workshops from the platform teams.',
-            'Brought different teams together on a shared telemetry solution.',
-            'Started a single Markdown knowledge portal for Chapters and CoEs. It is widely used now, including as a source for AI agents.',
+            'Led the Front-end Chapter, connecting engineering teams through regular meetings and platform workshops.',
+            'Brought teams together on a shared telemetry solution.',
+            'Started a shared Markdown knowledge portal for Chapters and Centers of Excellence, now also used as a source for AI agents.',
           ],
-          skills: ['Developer Experience', 'Technical Writing', 'Software Quality', 'Internal Tooling', 'Knowledge Management', 'Platform Engineering', 'Community Building'],
+          skills: ['Developer Experience', 'Technical Writing', 'Knowledge Management', 'Platform Engineering'],
         },
         {
           title: 'Front-end Architect',
           period: 'Feb 2018 - Feb 2023',
-          duration: '5 years',
           location: 'São Paulo, Brazil',
           description: [
-            'Led, with the team, the definition, governance and adoption of Angular 2+ across Santander Brazil.',
-            'Enabled squads building tools for branch managers, customer service, internet banking and others.',
-            'Ran frequent training and workshops, and wrote the documentation and standards those teams used.',
-            'Turned internal needs into requirements for the platform team.',
+            'Led, with the team, Angular 2+ definition, governance and adoption across Santander Brazil.',
+            'Enabled squads building branch, customer service and internet banking tools through workshops, documentation and shared standards.',
+            'Translated internal needs into platform requirements and matched squads with relevant accelerators and patterns.',
             'Aligned priorities with C-level stakeholders, including the CTO.',
-            'Kept implementations on track by matching each squad\'s need to the accelerators and patterns.',
           ],
-          skills: ['Angular', 'Internal Platforms', 'JavaScript', 'Web Components', 'Scalable Architecture', 'Technical Writing', 'Stakeholder Management', 'Enablement', 'English'],
+          skills: ['Angular', 'Internal Platforms', 'Technical Writing', 'Stakeholder Management', 'Enablement'],
         },
       ],
     },
@@ -419,7 +717,6 @@ export default class ExperiencePageComponent {
         {
           title: 'Technical Lead',
           period: 'Jun 2017 - Feb 2018',
-          duration: '9 months',
           location: 'São Paulo, Brazil',
           description: [
             'Trained three AngularJS groups of about 15 people each, and helped select who to allocate at Santander.',
@@ -436,7 +733,6 @@ export default class ExperiencePageComponent {
         {
           title: 'Web Developer',
           period: 'Oct 2015 - Jun 2017',
-          duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
           description: [
             'Built web applications in C#, AngularJS and JavaScript.',
@@ -453,7 +749,6 @@ export default class ExperiencePageComponent {
         {
           title: 'Solutions Analyst',
           period: 'Feb 2014 - Oct 2015',
-          duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
           description: [
             'Built desktop (Windows Forms and WPF), web (ASP.NET, KnockoutJS and AngularJS) and mobile solutions in C# and JavaScript.',
@@ -472,7 +767,6 @@ export default class ExperiencePageComponent {
         {
           title: 'Full Stack Developer',
           period: 'Feb 2012 - Feb 2014',
-          duration: '2 years 1 month',
           location: 'São Paulo, Brazil',
           description: [
             'Built .NET desktop apps and web applications with ASP.NET MVC, JavaScript, jQuery, AngularJS and KnockoutJS.',
@@ -487,7 +781,6 @@ export default class ExperiencePageComponent {
         {
           title: 'IT Technician',
           period: 'Jan 2010 - Jan 2012',
-          duration: '2 years 1 month',
           location: 'Santo André, SP',
           description: [
             'Maintained computers, servers and networks in the computer labs.',
@@ -498,4 +791,7 @@ export default class ExperiencePageComponent {
       ],
     },
   ];
+
+  currentCompany = this.companies[0];
+  earlierCompanies = this.companies.slice(1);
 }
