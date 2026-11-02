@@ -26,7 +26,10 @@ describe('ExperiencePageComponent', () => {
     expect(sections.indexOf(page.querySelector('#selected-solutions')!))
       .toBeLessThan(sections.indexOf(page.querySelector('.timeline')!));
     expect(page.querySelector('.timeline')?.textContent).toContain('Santander Group');
-    expect(page.querySelectorAll('.role-title')).toHaveLength(9);
+    expect(page.querySelectorAll('.role-title')).toHaveLength(8);
+    expect(page.textContent).not.toContain('Colégio Singular');
+    expect(page.textContent).not.toContain('IT Technician');
+    expect(page.querySelector('details summary')?.textContent).toContain('2012–2018');
     expect(page.querySelector('details')?.textContent).toContain('Hexagon IT Solutions');
     expect(page.querySelector('.earlier-highlight')?.textContent).toContain('50 SAMU operators');
     expect(page.querySelector('.timeline')?.textContent).toContain('Sep 2024 - Present');

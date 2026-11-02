@@ -124,7 +124,7 @@ interface Company {
           This included training around 50 SAMU operators.
         </p>
         <details>
-          <summary>View earlier roles <span>2010–2018</span></summary>
+          <summary>View earlier roles <span>2012–2018</span></summary>
           @for (company of earlierCompanies; track company.name) {
             <div class="timeline-company">
               <h3 class="company-name">{{ company.name }}</h3>
@@ -733,21 +733,6 @@ export default class ExperiencePageComponent {
             'Built .NET desktop apps and web applications with ASP.NET MVC, JavaScript, jQuery, AngularJS and KnockoutJS.',
           ],
           skills: ['C#', 'JavaScript', '.NET', 'AngularJS'],
-        },
-      ],
-    },
-    {
-      name: 'Colégio Singular',
-      roles: [
-        {
-          title: 'IT Technician',
-          period: 'Jan 2010 - Jan 2012',
-          location: 'Santo André, SP',
-          description: [
-            'Maintained computers, servers and networks in the computer labs.',
-            "Did basic maintenance on the school's portal.",
-          ],
-          skills: ['IT Infrastructure', 'Networking'],
         },
       ],
     },
