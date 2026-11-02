@@ -417,7 +417,7 @@ export default class ExperiencePageComponent {
       name: 'Vector ITC Group',
       roles: [
         {
-          title: 'Project Lead',
+          title: 'Technical Lead',
           period: 'Jun 2017 - Feb 2018',
           duration: '9 months',
           location: 'São Paulo, Brazil',
