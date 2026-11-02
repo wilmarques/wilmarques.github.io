@@ -26,7 +26,10 @@ describe('ExperiencePageComponent', () => {
     expect(sections.indexOf(page.querySelector('#selected-solutions')!))
       .toBeLessThan(sections.indexOf(page.querySelector('.timeline')!));
     expect(page.querySelector('.timeline')?.textContent).toContain('Santander Group');
-    expect(page.querySelectorAll('.role-title')).toHaveLength(9);
+    expect(page.querySelectorAll('.role-title')).toHaveLength(8);
+    expect(page.textContent).not.toContain('Colégio Singular');
+    expect(page.textContent).not.toContain('IT Technician');
+    expect(page.querySelector('details summary')?.textContent).toContain('2012–2018');
     expect(page.querySelector('details')?.textContent).toContain('Hexagon IT Solutions');
     expect(page.querySelector('.earlier-highlight')?.textContent).toContain('50 SAMU operators');
     expect(page.querySelector('.timeline')?.textContent).toContain('Sep 2024 - Present');
@@ -43,15 +46,13 @@ describe('ExperiencePageComponent', () => {
     expect(page.textContent).not.toMatch(/80%|90%/);
   });
 
-  it('links to selected work, public writing and contact destinations', () => {
+  it('links to selected work and contact destinations without a public work section', () => {
     const page = renderPage();
     expect(page.querySelector('a[href="#selected-solutions"]')).toBeTruthy();
-    const writingLinks = Array.from(page.querySelectorAll('.writing-card'))
-      .map((link) => link.getAttribute('href'));
-    expect(writingLinks).toEqual([
-      '/blog/2026-10-09-what-if-devin-had-a-chat-app',
-      '/blog/2026-09-27-what-if-devin-on-my-phone',
-    ]);
+    expect(page.querySelector('.writing-section')).toBeNull();
+    expect(page.textContent).not.toContain('Public work');
+    expect(page.textContent).not.toContain('Experiments & technical writing');
+    expect(page.querySelector('a[href^="/blog/"]')).toBeNull();
     expect(page.querySelector('.contact-section a')?.getAttribute('href'))
       .toBe('https://linkedin.com/in/wilmarquesdev');
   });
