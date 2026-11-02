@@ -42,12 +42,12 @@ interface Company {
           Artificial Intelligence, Developer Experience and Agentic AI.
         </p>
         <p>
-          I lead AI-driven SDLC work. I design enterprise AI solutions and reusable platforms, and
-          I build agentic workflows.
+          The recent work is AI-driven SDLC, enterprise AI solutions, reusable platforms and
+          agentic workflows.
         </p>
         <p>
-          Before that, the work was front-end architecture and technical leadership. Day to day, I
-          enable teams, drive adoption and advise internal stakeholders.
+          Before that, front-end architecture and technical leadership. Most of the job is
+          enabling teams, driving adoption and advising internal stakeholders.
         </p>
       </div>
     </section>
@@ -361,11 +361,11 @@ export default class ExperiencePageComponent {
           duration: '1 year 11 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I lead the AI-driven SDLC initiative at Santander Brazil. I also influence the same direction at Group level.',
-            'I drove adoption of GitHub Copilot, and later the move to Devin. Adoption passed 80% after we set up the foundations: environments, processes and enablement.',
-            'I defined how the organization should create agents, and the content those coding agents use. The base is Markdown, Agent Skills and MCPs, so lock-in stays low.',
-            'I coordinated the teams involved. I ran training and workshops. I aligned needs with stakeholders.',
-            'The current work is moving from isolated copilots to AI connected across the SDLC, from ideation to production.',
+            'Leading the AI-driven SDLC initiative at Santander Brazil. The same direction also reaches Group level.',
+            'GitHub Copilot came first, then the move to Devin. Adoption passed 80% after the foundations were in place: environments, processes and enablement.',
+            'Agents, and the content those coding agents use, are built on Markdown, Agent Skills and MCPs. That keeps lock-in low.',
+            'The rollout covered team coordination, training, workshops and alignment with stakeholders.',
+            'The current step is moving from isolated copilots to AI connected across the SDLC, from ideation to production.',
           ],
           skills: ['GitHub Copilot', 'Devin', 'Windsurf', 'Agentic AI', 'MCP', 'Specification Driven Development', 'AI-DLC', 'SDLC Automation', 'Developer Experience', 'LLM', 'Adoption Enablement', 'English'],
         },
@@ -375,11 +375,11 @@ export default class ExperiencePageComponent {
           duration: '9 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I architected two enterprise AI solutions for the Santander Group.',
+            'Two enterprise AI solutions for the Santander Group.',
             'One is the Global AI Platform, a reusable base for building internal agents.',
             'The other automates repository modernization. It started with Java upgrades using internal frameworks, then expanded to Angular and Python.',
             'Accuracy was over 90%, with a specification-driven approach. That was before this became the usual way.',
-            'I worked on needs discovery and the key technical decisions.',
+            'This also covered needs discovery and the key technical decisions.',
             'After the results in Brazil, the solution was positioned for a global rollout.',
           ],
           skills: ['Python', 'Java', 'Azure', 'AWS', 'Amazon Bedrock', 'DynamoDB', 'ReAct Agents', 'LLM', 'AI Architecture', 'Cloud Computing', 'English'],
@@ -390,10 +390,10 @@ export default class ExperiencePageComponent {
           duration: '10 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I led the Front-end Chapter. The goal was an internal community for sharing knowledge and adopting better practices.',
-            'We held regular meetings. I also supported workshops run by the platform teams.',
-            'I helped different teams work together. One case was a telemetry solution built by more than one team.',
-            'I started a single internal knowledge portal. Chapters and CoEs publish their docs there, in Markdown.',
+            'The Front-end Chapter was an internal community for sharing knowledge and adopting better practices.',
+            'Regular meetings, and support for workshops from the platform teams.',
+            'Different teams working together. One case was a telemetry solution built by more than one team.',
+            'A single internal knowledge portal. Chapters and CoEs publish their docs there, in Markdown.',
             'Before that, it was hard to find internal standards. The portal is widely used now, and it is also useful for AI agents.',
           ],
           skills: ['Developer Experience', 'Technical Writing', 'Software Quality', 'Internal Tooling', 'Knowledge Management', 'Platform Engineering', 'Community Building'],
@@ -404,12 +404,12 @@ export default class ExperiencePageComponent {
           duration: '5 years',
           location: 'São Paulo, Brazil',
           description: [
-            'I led, with my team, the definition, governance and adoption of Angular 2+ across Santander Brazil.',
+            'Definition, governance and adoption of Angular 2+ across Santander Brazil, with the team.',
             'Other squads used what we built. The applications included tools for branch managers, customer service, internet banking and others.',
-            'I ran training and workshops often. I wrote the documentation and the standards the teams used.',
-            'I turned internal needs into requirements for the platform team.',
-            'I aligned priorities with C-level stakeholders, including the CTO.',
-            'The implementations worked when we understood what each squad needed, and gave them the accelerators and patterns to get there.',
+            'Training and workshops were frequent, along with the documentation and standards the teams used.',
+            'Internal needs went to the platform team as requirements.',
+            'Priorities stayed aligned with C-level stakeholders, including the CTO.',
+            'Implementations worked when the squad need was clear, and the accelerators and patterns matched it.',
           ],
           skills: ['Angular', 'Internal Platforms', 'JavaScript', 'Web Components', 'Scalable Architecture', 'Technical Writing', 'Stakeholder Management', 'Enablement', 'English'],
         },
@@ -424,10 +424,10 @@ export default class ExperiencePageComponent {
           duration: '9 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I worked as a consultant.',
-            'I delivered AngularJS training to three groups, about 15 people each. I also helped select people to allocate at the client, Santander.',
-            'Later I was allocated inside Santander. I worked in a Scrum squad, implementing internal systems from the needs the Product Owner brought.',
-            'I became a technical reference there. That helped with the later move to an internal role.',
+            'Consulting work.',
+            'AngularJS training for three groups, about 15 people each, and help selecting people to allocate at Santander.',
+            'Later, allocated inside Santander in a Scrum squad. The work was internal systems from the needs the Product Owner brought.',
+            'Became a technical reference there, which helped with the later move to an internal role.',
           ],
           skills: ['Angular', 'JavaScript', 'Leadership', 'Training', 'Consulting'],
         },
@@ -442,9 +442,9 @@ export default class ExperiencePageComponent {
           duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I developed web applications with C#, AngularJS and JavaScript.',
-            'I led the creation of a web system in AngularJS. I also gave internal training on it.',
-            'I became one of the main front-end references in the company. I helped developers who came from other technologies.',
+            'Web applications in C#, AngularJS and JavaScript.',
+            'Creation of a web system in AngularJS, plus internal training on it.',
+            'One of the main front-end references in the company, helping developers who came from other technologies.',
           ],
           skills: ['C#', 'Angular', 'JavaScript', 'Technical Mentoring'],
         },
@@ -459,10 +459,10 @@ export default class ExperiencePageComponent {
           duration: '1 year 9 months',
           location: 'São Paulo, Brazil',
           description: [
-            'I developed desktop (Windows Forms and WPF), web (ASP.NET, KnockoutJS and AngularJS) and mobile solutions, in C# and JavaScript.',
-            'I was allocated inside the clients: SAMU, CET and Polícia Civil de SP.',
-            'I learned the operational needs and implemented the solutions on site. During deployments I managed small teams of 2 or 3 people, and I trained the end users.',
-            'At SAMU I trained around 50 operators. The deployment was one day, on a system the operation depended on.',
+            'Desktop (Windows Forms and WPF), web (ASP.NET, KnockoutJS and AngularJS) and mobile, in C# and JavaScript.',
+            'Allocated inside the clients: SAMU, CET and Polícia Civil de SP.',
+            'The job was learning the operational needs and implementing on site. Deployments included small teams of 2 or 3 people, and training for the end users.',
+            'At SAMU, training for around 50 operators. The deployment was one day, on a system the operation depended on.',
             'At CET the work was needs discovery, deployment management and client satisfaction. The operation could not stop.',
           ],
           skills: ['C#', 'JavaScript', 'Client Implementation', 'User Training', 'Deployment Management'],
