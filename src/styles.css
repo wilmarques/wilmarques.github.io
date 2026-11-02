@@ -173,6 +173,18 @@ button:hover,
 }
 
 /* ===== Markdown Content ===== */
+.analog-markdown {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.analog-markdown table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .analog-markdown p {
   text-align: left;
 }
@@ -196,6 +208,18 @@ button:hover,
   border-radius: 0.75rem;
   padding: 1.25rem;
   overflow-x: auto;
+  max-width: 100%;
+  overflow-wrap: normal;
+}
+
+@media (max-width: 640px) {
+  .back-link,
+  .text-link,
+  .footer-inner a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
 
 .analog-markdown blockquote {

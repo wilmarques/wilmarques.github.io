@@ -142,7 +142,12 @@ import { RouterLink } from '@angular/router';
 
     .hero-cta {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
+    }
+
+    .hero > * {
+      min-width: 0;
     }
 
     .btn-primary {

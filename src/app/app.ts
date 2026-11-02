@@ -118,6 +118,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     /* ===== Main ===== */
     main {
       flex: 1;
+      min-width: 0;
+      overflow-wrap: anywhere;
       max-width: 1080px;
       margin: 0 auto;
       padding: 2rem 1.5rem;
@@ -152,8 +154,35 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     }
 
     @media (max-width: 640px) {
+      .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding-block: 0.5rem;
+      }
+
+      .logo {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+
       .nav-links {
-        gap: 1rem;
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.25rem;
+      }
+
+      .nav-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 44px;
+        min-height: 44px;
+      }
+
+      .nav-links a.active::after {
+        bottom: 0;
       }
     }
   `,
