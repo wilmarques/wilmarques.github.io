@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { RouterLink } from '@angular/router';
 import { RouteMeta } from '@analogjs/router';
 
 export const routeMeta: RouteMeta = {
@@ -34,7 +33,7 @@ interface Company {
 
 @Component({
   selector: 'app-experience',
-  imports: [NgTemplateOutlet, RouterLink],
+  imports: [NgTemplateOutlet],
   template: `
     <section class="experience-hero" aria-labelledby="experience-title">
       <p class="eyebrow">Wiley (Wil) Marques / Experience</p>
@@ -152,24 +151,6 @@ interface Company {
       </div>
     </section>
 
-    <section class="writing-section" aria-labelledby="writing-title">
-      <p class="eyebrow">Public work</p>
-      <h2 id="writing-title" class="section-title">Experiments & technical writing</h2>
-      <p>Personal experiments with coding agents, separate from my enterprise work.</p>
-      <div class="writing-grid">
-        <a class="writing-card" routerLink="/blog/2026-10-09-what-if-devin-had-a-chat-app">
-          <span class="solution-category">Integration experiment</span>
-          <h3>Connecting a chat app to a coding agent <span aria-hidden="true">↗</span></h3>
-          <p>Devin CLI, the Agent Client Protocol and a mobile chat interface.</p>
-        </a>
-        <a class="writing-card" routerLink="/blog/2026-09-27-what-if-devin-on-my-phone">
-          <span class="solution-category">Developer environment experiment</span>
-          <h3>Running a coding agent on Android <span aria-hidden="true">↗</span></h3>
-          <p>Exploring a local agent workflow with Termux and Linux on a phone.</p>
-        </a>
-      </div>
-    </section>
-
     <section class="contact-section" aria-labelledby="contact-title">
       <div>
         <p class="eyebrow">Work together</p>
@@ -256,8 +237,7 @@ interface Company {
       font-size: 0.875rem;
     }
 
-    .solutions-section,
-    .writing-section {
+    .solutions-section {
       padding: 1rem 0 4rem;
     }
 
@@ -267,8 +247,7 @@ interface Company {
       gap: 1rem;
     }
 
-    .solution-card,
-    .writing-card {
+    .solution-card {
       padding: 1.5rem;
       border: 1px solid var(--color-border);
       border-radius: 0.75rem;
@@ -280,14 +259,12 @@ interface Company {
     }
 
     .solution-card p:not(.solution-category),
-    .solution-card dd,
-    .writing-card p {
+    .solution-card dd {
       font-size: 0.9375rem;
       line-height: 1.65;
     }
 
-    .solution-card dl,
-    .writing-card p {
+    .solution-card dl {
       margin-bottom: 0;
     }
 
@@ -340,21 +317,6 @@ interface Company {
 
     details .company-name {
       font-size: 1.125rem;
-    }
-
-    .writing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .writing-card:hover {
-      border-color: var(--color-accent);
-    }
-
-    .writing-card h3 {
-      font-size: 1.125rem;
-      margin-top: 0.75rem;
     }
 
     .contact-section {
@@ -579,8 +541,7 @@ interface Company {
 
     @media (max-width: 640px) {
       .skills-grid,
-      .evidence-strip,
-      .writing-grid {
+      .evidence-strip {
         grid-template-columns: 1fr;
       }
 
