@@ -9,14 +9,12 @@ import { RouterLink } from '@angular/router';
       <div class="hero-content">
         <p class="hero-greeting">Hi, I'm</p>
         <h1 class="hero-name">Wiley <span class="gradient-text">(Wil)</span> Marques</h1>
-        <p class="hero-title">Software Engineer &middot; AI Architect &middot; Developer Experience Lead (Agentic SDLC)</p>
+        <p class="hero-title">AI Solutions Architect &middot; Agentic SDLC Lead</p>
         <p class="hero-description">
-          Technology professional with <strong>12+ years</strong> in software development, the last
-          <strong>3+ years</strong> focused on <strong>Artificial Intelligence</strong>,
-          <strong>Developer Experience</strong>, and <strong>Agentic AI</strong>. Currently leading the
-          AI-driven SDLC initiative at F1RST Digital Services (Santander Group), architecting
-          enterprise-scale AI platforms and rolling out agentic workflows and AI-DLC across the
-          organization.
+          I design <strong>enterprise AI solutions and agentic workflows</strong>, and help engineering
+          teams adopt them. At F1RST Digital Services (Santander Group), I lead the AI-driven
+          software development lifecycle initiative in Brazil. Building software since 2012,
+          with a background in architecture, hands-on delivery and developer enablement.
         </p>
         <div class="hero-cta">
           <a routerLink="/experience" class="btn-primary">View Experience</a>
@@ -54,7 +52,7 @@ import { RouterLink } from '@angular/router';
             </svg>
           </div>
           <h3>AI & Agentic Systems</h3>
-          <p>Architecting enterprise AI platforms and agentic workflows using ReAct agents, LLMs, multi-agent architectures, MCP, and Agent Skills to automate the full development lifecycle.</p>
+          <p>Architecting enterprise AI solutions and agentic workflows using ReAct agents, LLMs, multi-agent architectures, MCP, and Agent Skills to automate the full development lifecycle.</p>
         </div>
         <div class="skill-card">
           <div class="skill-icon">
@@ -95,7 +93,6 @@ import { RouterLink } from '@angular/router';
       </div>
       <ul class="highlights-list">
         <li>Creator of an internal Angular framework adopted at enterprise scale.</li>
-        <li>Architect of the Santander Group Global AI Platform.</li>
         <li>Leading the AI-DLC transformation at Santander Brazil.</li>
       </ul>
     </section>
